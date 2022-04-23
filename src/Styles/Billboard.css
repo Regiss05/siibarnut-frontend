@@ -1,0 +1,9 @@
+.billboardContainer {
+  width: 100%;
+  background-color: var(--color-site);
+  min-height: 40px;
+}
+
+.billboardContainer > img {
+  height: 100%;
+}

@@ -1,0 +1,40 @@
+.middleTopContainer {
+
+  background-color: white;
+  height: auto;
+  padding: 10px 10px 30px 10px;
+  border-radius: 3px;
+}
+
+.middleTopContainer > img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.buttonSlideContainer {
+  display: flex;
+  position: absolute;
+  bottom: 2%;
+  z-index: 1000;
+}
+
+.leftButton:hover {
+  display: block;
+}
+
+.leftButton .MuiSvgIcon-root {
+  color: white;
+  padding: 6px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.rightButton .MuiSvgIcon-root {
+  color: white;
+  padding: 6px;
+  background-color: black;
+  border-radius: 50%;
+}
+.slick-active div{
+  background-color: var(--color-site) !important;
+}

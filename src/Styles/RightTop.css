@@ -1,0 +1,16 @@
+.rightTopContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+ 
+.rightTopDiv {
+  border-radius: 5px;
+  background-color: white;
+} 
+
+.rightBottomDiv > img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+} 
