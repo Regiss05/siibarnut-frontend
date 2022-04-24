@@ -71,7 +71,7 @@ function MiddleTop() {
   };
 
   return (
-    <div className="middleTopContainer col-12 col-xl-8 col-lg-8 ">
+    <div className="middleTopContainer col-12 col-xl-9 col-lg-9 ">
       <Slider {...settings}>
        <img src={image1} alt="imglg" />
        <img src={image2} alt="imglg" />

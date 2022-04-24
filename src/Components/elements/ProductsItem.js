@@ -1,19 +1,20 @@
 import React from "react";
+import {ShoppingCart} from "react-feather";
 
-const ProductsItem=({})=>{
+const ProductsItem=({image,titre,prix})=>{
     return(
         <div className="col-md-3  mt-4">
             <div className="card">
-                <div className="d-flex justify-content-between align-items-center">
-                    <div className="d-flex flex-row align-items-center time">
-                        <span className="text-success">$200 </span></div>
-                    <img src="https://i.imgur.com/suuFVrQ.png" width="20" alt="imageprod"/>
-                </div>
-                <div className="text-center overflow-hidden">
-                    <img src="https://i.imgur.com/TbtwkyW.jpg" className="img-fluid"  alt="imageprod"/></div>
+                <div className="text-center overflow-hidden ">
+                    <img src={process.env.REACT_APP_BASE_URL+"/img/"+image} className="img-fluid"  alt="imageprod"/></div>
                 <div className="text-center">
-                    <h5>Amazon Echo</h5>
-
+                    <h5>{titre}</h5>
+                </div>
+                <div className="d-flex align-items-center justify-content-between ">
+                    <span className="text-success fw-bold">{prix}$</span>
+                    <button className="btn-add">
+                        <ShoppingCart color="#ffffff"/>
+                    </button>
                 </div>
             </div>
         </div>

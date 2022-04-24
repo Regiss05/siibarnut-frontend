@@ -5,6 +5,7 @@ import {Container} from "reactstrap";
 import Billboard from "./elements/Billboard";
 import QuickLinks from "./elements/QuickLinks";
 import Products from "./elements/products";
+import Footer from "../../Components/global/footer";
 
 const Home=()=>{
     return(
@@ -13,6 +14,7 @@ const Home=()=>{
                <TopSection/>
             <QuickLinks/>
             <Products/>
+            <Footer/>
         </div>
     )
 }

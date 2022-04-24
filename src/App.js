@@ -1,16 +1,10 @@
 import React from 'react';
 import './App.css';
-import Home from "./page/home";
+import Routes from "./routeur/Routes";
 
 function App() {
   return (
- /*   <div className="App">
-       <Header />
-       <TopSection />
-       <QuickLinks />
-        <Products/>
-    </div>*/
-      <Home/>
+      <Routes/>
   );
 }
 

@@ -9,10 +9,32 @@
 }
 
 .card {
-    border: none;
-    padding: 15px;
+    border: 2px solid #ffffff;
+    padding: 10px 15px 30px 15px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1px;
+}
+.card:hover {
+    -webkit-box-shadow: 4px 2px 36px -12px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 2px 36px -12px rgba(0, 0, 0, 0.27);
+}
+
+.card img{
+    border-radius: 10px;
 }
 
 .time i {
     color: #cacacaa3
+}
+.loaderCustom {
+    padding: 10px 15px 30px 15px;
+    height: 400px;
+}
+.logo-footer{
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
 }
