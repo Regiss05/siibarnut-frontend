@@ -10,8 +10,8 @@
   display: flex;
   justify-content: flex-start;
   background-color: white;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 20px 10px;
+  border-radius: 10px;
   cursor: pointer;
   align-items: center;
   gap: 30px;

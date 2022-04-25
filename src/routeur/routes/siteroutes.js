@@ -9,6 +9,14 @@ const Siteroutes = [
         component: lazy(() => import('../../page/home/')),
         exact: true
     },
+    {
+        path:"/produit",
+        ind:{
+            index:false,
+        },
+        component: lazy(() => import('../../page/detailProduct/')),
+        exact: true
+    },
 
 ]
 

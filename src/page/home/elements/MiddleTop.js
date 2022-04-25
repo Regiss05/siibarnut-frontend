@@ -1,16 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../../../Styles/MiddleTop.css';
 import image1 from '../../../images/firstimage.jpg';
 import image2 from '../../../images/secondimage.jpg';
 import image3 from '../../../images/thirdimage.gif';
-import image4 from '../../../images/forthimage.jpg';
-import image5 from '../../../images/fifthimage.jpg';
-import image6 from '../../../images/sixthimage.jpg';
-import image7 from '../../../images/seventh.jpg';
-import image8 from '../../../images/lastimage.jpg';
-import ButtonSlides from './ButtonSlides';
-import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import Slider from "react-slick";
 function MiddleTop() {
   const settings = {
@@ -71,7 +63,7 @@ function MiddleTop() {
   };
 
   return (
-    <div className="middleTopContainer col-12 col-xl-8 col-lg-8 ">
+    <div className="middleTopContainer col-12 col-xl-9 col-lg-9 ">
       <Slider {...settings}>
        <img src={image1} alt="imglg" />
        <img src={image2} alt="imglg" />

@@ -1,8 +1,6 @@
 import React from "react";
-import { Route, Routes as AppRoutes,Navigate } from 'react-router-dom'
+import { Route, Routes as AppRoutes, } from 'react-router-dom'
 import {Routes as SiteRoutes} from "./routes/";
-import "../assets/style/loader.css"
-import {Spinner} from "reactstrap";
 
 const Routes=()=>{
     return (
@@ -12,7 +10,7 @@ const Routes=()=>{
                         const Component=item.component
                         return(
                             <Route  path={item.path} index={item.index} {...item.ind}   element={
-                                <React.Suspense fallback={<Spinner>...Loader</Spinner>}>
+                                <React.Suspense fallback={<div></div>}>
                                     {<Component />}
                                 </React.Suspense>
                             } key={index} />

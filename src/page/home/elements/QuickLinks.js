@@ -2,14 +2,13 @@ import React from 'react';
 import '../../../Styles/QuickLinks.css';
 import JumiaMall from '../../../images/JumiaMall.png';
 import JumiaGlobal from '../../../images/JumiaGlobal.png';
-import JumiaOne from '../../../images/JumiaOne_2.png';
-import JumiaPrime from '../../../images/JumiaPrime_2.png';
+import { Globe, Lock} from "react-feather";
 
 
 function QuickLinks() {
   const links = (Icon, text) => (
     <div className="quickLinksOptions col-3">
-      <img src={Icon} />
+      {Icon}
       <h2>{text}</h2>
     </div>
   )
@@ -17,10 +16,10 @@ function QuickLinks() {
       <div className="container p-2  ">
           <div className="row mt-4">
     <div className="quickLinksContainer col-12">
-      {links(JumiaMall, 'Official Stores')}
-      {links(JumiaGlobal, 'Jumia Global')}
-      {links(JumiaPrime, 'Free Delivery')}
-      {links(JumiaOne, 'Credo Cashbacks')}
+      {links(<img src={JumiaMall} alt="imgt"/>, 'Boutique Officielle')}
+      {links(<img src={JumiaGlobal} alt="imgt"/>, 'Livraison à domicile')}
+      {links(<div className="iconcont2"><Globe size={30} color="#fff"/></div>, 'Support 24/24')}
+        {links(<div className="iconcont"><Lock size={30} color="#fff"/></div>, 'Paiement  sécurisé')}
     </div>
           </div>
       </div>

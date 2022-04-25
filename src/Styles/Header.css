@@ -1,6 +1,7 @@
 .header {
   background-color: #ffffff;
   padding: 5px 0px ;
+  transition: all 0.2s;
 }
 .headerContainer {
   display: flex;
@@ -58,4 +59,16 @@
   width: 100%;
   background-color: var(--color-site);
   min-height: 40px;
+}
+.header-light{
+  padding: 5px 0px ;
+  -webkit-box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+  background-color: #fff;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  transition: all 0.2s;
+  top: -10px;
+  z-index: 70;
 }
