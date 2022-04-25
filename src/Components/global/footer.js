@@ -1,6 +1,5 @@
 import React from "react";
-import logo from "../../images/logos/4.JPG"
-import {Facebook, Instagram, Phone, Twitter} from "react-feather";
+import {Phone,} from "react-feather";
 import playstore from "../../images/ulistartion/android.svg"
 import appstore from "../../images/ulistartion/ios.svg"
 import {Email} from "@material-ui/icons";
@@ -15,16 +14,16 @@ import {Email} from "@material-ui/icons";
                                  <span className="footer-title">Apropo de nous</span>
                              </li>
                              <li className="nav-item">
-                                 <a className="nav-link" href="#">Product 1</a>
+                                 <a className="nav-link" href="/">Product 1</a>
                              </li>
                              <li className="nav-item">
-                                 <a className="nav-link" href="#">Product 2</a>
+                                 <a className="nav-link" href="/">Product 2</a>
                              </li>
                              <li className="nav-item">
-                                 <a className="nav-link" href="#">Plans & Prices</a>
+                                 <a className="nav-link" href="/">Plans & Prices</a>
                              </li>
                              <li className="nav-item">
-                                 <a className="nav-link" href="#">Frequently asked questions</a>
+                                 <a className="nav-link" href="/">Frequently asked questions</a>
                              </li>
                          </ul>
                      </div>
@@ -34,12 +33,12 @@ import {Email} from "@material-ui/icons";
                                  <span className="footer-title">Nos App</span>
                              </li>
                              <li className="nav-item">
-                                 <a className="nav-link" href="#">
+                                 <a className="nav-link" href="/">
                                      <img src={playstore} alt="imagestore" />
                                  </a>
                              </li>
                              <li className="nav-item">
-                                 <a className="nav-link" href="#">
+                                 <a className="nav-link" href="/">
                                      <img src={appstore} alt="imagestore" />
                                  </a>
                              </li>
@@ -54,7 +53,7 @@ import {Email} from "@material-ui/icons";
                                  <span className="nav-link"><Phone className="icpneFooter"/>+243972673616</span>
                              </li>
                              <li className="nav-item mt-1">
-                                 <a className="nav-link" href="#"><Email className="icpneFooter"/>Contact us</a>
+                                 <a className="nav-link" href="/"><Email className="icpneFooter"/>Contact us</a>
                              </li>
                          </ul>
                      </div>
@@ -64,23 +63,24 @@ import {Email} from "@material-ui/icons";
 
                  <div className="row text-center">
                      <div className="col-md-4 box">
-        <span className="copyright quick-links">Copyright &copy; Webmaster019 {new Date().getFullYear()}
+        <span className="copyright quick-links">
+            Copyright &copy; Webmaster019 {new Date().getFullYear()}
         </span>
                      </div>
                      <div className="col-md-4 box">
                          <ul className="list-inline social-buttons">
                              <li className="list-inline-item">
-                                 <a href="#">
+                                 <a href="/">
                                      <i className="fab fa-twitter"></i>
                                  </a>
                              </li>
                              <li className="list-inline-item">
-                                 <a href="#">
+                                 <a href="/">
                                      <i className="fab fa-facebook-f"></i>
                                  </a>
                              </li>
                              <li className="list-inline-item">
-                                 <a href="#">
+                                 <a href="/">
                                      <i className="fab fa-linkedin-in"></i>
                                  </a>
                              </li>
@@ -89,10 +89,10 @@ import {Email} from "@material-ui/icons";
                      <div className="col-md-4 box">
                          <ul className="list-inline quick-links">
                              <li className="list-inline-item">
-                                 <a href="#">Privacy Policy</a>
+                                 <a href="/">Privacy Policy</a>
                              </li>
                              <li className="list-inline-item">
-                                 <a href="#">Terms of Use</a>
+                                 <a href="/">Terms of Use</a>
                              </li>
                          </ul>
                      </div>

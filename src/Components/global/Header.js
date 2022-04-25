@@ -6,9 +6,6 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import logo from "../../images/logos/3.PNG"
-import {DropdownMenu, DropdownToggle, UncontrolledButtonDropdown, UncontrolledDropdown} from "reactstrap";
-import {Menu} from "react-feather";
-import {Link} from "react-router-dom";
 function Header() {
 
   const [isScroll, setIsScroll] = useState(false);

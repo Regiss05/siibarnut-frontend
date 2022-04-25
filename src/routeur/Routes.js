@@ -1,7 +1,6 @@
 import React from "react";
-import { Route, Routes as AppRoutes,Navigate } from 'react-router-dom'
+import { Route, Routes as AppRoutes, } from 'react-router-dom'
 import {Routes as SiteRoutes} from "./routes/";
-import {Spinner} from "reactstrap";
 
 const Routes=()=>{
     return (

@@ -181,3 +181,6 @@ footer .quick-links {
     align-items: center;
     justify-content: center;
 }
+.conteiant-site{
+    min-height: 40vh;
+}

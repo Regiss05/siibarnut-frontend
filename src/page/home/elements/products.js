@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from "react";
 import "../../../Styles/productCss.css"
 import ProductsItem from "../../../Components/elements/ProductsItem";
-import {Spinner} from "reactstrap";
 import axios from "axios";
 import ProductLoader from "../../../Components/elements/productLoader";
+import {useNavigate} from "react-router-dom";
 
 const Products = () => {
     const [produits,setProducts]=useState(null)
     const [isLog, setislog] = useState(false);
+    const history = useNavigate();
 
     const getProducts=()=>{
         setislog(true)
@@ -23,7 +24,7 @@ const Products = () => {
         axios(options)
             .then(response => {
                 setislog(false)
-                if (response.data.status==200){
+                if (response.data.status===200){
                     console.log(response.data)
                     setProducts(response.data?.data);
                 }else {
@@ -55,7 +56,7 @@ const Products = () => {
                 {
                     produits
                         ?
-                        produits.map((item, index) => <ProductsItem prix={item.Prix_unitaire} titre={item.designation} image={item.img_princ} />)
+                        produits.map((item, index) => <ProductsItem prix={item.Prix_unitaire} titre={item.designation} image={item.img_princ}  onClick={() => history( "/produit", {state: item})}  />)
                         :
                         null
                 }
