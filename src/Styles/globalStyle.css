@@ -2,11 +2,11 @@
     --color-site:#1888cd;
 }
 body{
-    width: 100%;
     background-color: #f3f4f6;
     /*font-family: "Sofia Pro", sans-serif;*/
     font-family: 'DM Sans', sans-serif;
-    overflow-y: auto;
+    height: auto;
+    width: auto;
 }
 .nav-link{
     color: #ffffff !important ;
@@ -183,4 +183,7 @@ footer .quick-links {
 }
 .conteiant-site{
     min-height: 40vh;
+}
+.cursor-pointe{
+    cursor: pointer;
 }

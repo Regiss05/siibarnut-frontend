@@ -7,13 +7,13 @@ import Footer from "../../Components/global/footer";
 
 const Home=()=>{
     return(
-        <main className="">
+        <div >
             <Header/>
                <TopSection/>
             <QuickLinks/>
             <Products/>
             <Footer/>
-        </main>
+        </div>
     )
 }
 export default Home;

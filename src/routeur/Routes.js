@@ -10,7 +10,7 @@ const Routes=()=>{
                         const Component=item.component
                         return(
                             <Route  path={item.path} index={item.index} {...item.ind}   element={
-                                <React.Suspense fallback={<></>}>
+                                <React.Suspense fallback={<div></div>}>
                                     {<Component />}
                                 </React.Suspense>
                             } key={index} />

@@ -4,7 +4,8 @@
 }
 
 .product {
-    background-color: #eee
+    background-color: var(--color-site);
+    color: #ffffff;
 }
 
 .brand {
@@ -12,7 +13,7 @@
 }
 
 .act-price {
-    color: red;
+    color: #312a2a;
     font-weight: 700
 }
 
@@ -42,27 +43,27 @@ label.radio input {
 
 label.radio span {
     padding: 2px 9px;
-    border: 2px solid #ff0000;
+    border: 2px solid #171414;
     display: inline-block;
-    color: #ff0000;
+    color: #171414;
     border-radius: 3px;
     text-transform: uppercase
 }
 
 label.radio input:checked+span {
-    border-color: #ff0000;
-    background-color: #ff0000;
+    border-color: #171414;
+    background-color: #171414;
     color: #fff
 }
 
 .btn-danger {
-    background-color: #ff0000 !important;
-    border-color: #ff0000 !important
+    background-color: #171414 !important;
+    border-color: #171414 !important
 }
 
 .btn-danger:hover {
-    background-color: #da0606 !important;
-    border-color: #da0606 !important
+    background-color: #171414 !important;
+    border-color: #171414 !important
 }
 
 .btn-danger:focus {
@@ -75,4 +76,7 @@ label.radio input:checked+span {
 .thumbnailItem img{
     border: 1px solid #000000;
     border-radius: 5px;
+}
+.text-muted3{
+    color: #1a1d20;
 }

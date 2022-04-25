@@ -56,10 +56,10 @@ function Header() {
         </div>*/}
     <div className={isScroll ? "header-light" : "header"}>
     <div className="headerContainer container col-12">
-      <di className="logo col-2 col-lg-1 col-xl-1 ">
+      <div className="logo col-2 col-lg-1 col-xl-1 ">
         <img className="logo "
              src={logo} alt=""  />
-      </di>
+      </div>
 
       <div className="headerLeft col-10 col-lg-8 col-xl-8">
         <div className="headerSearch col-12">

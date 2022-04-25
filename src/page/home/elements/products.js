@@ -56,7 +56,7 @@ const Products = () => {
                 {
                     produits
                         ?
-                        produits.map((item, index) => <ProductsItem prix={item.Prix_unitaire} titre={item.designation} image={item.img_princ}  onClick={() => history( "/produit", {state: item})}  />)
+                        produits.map((item, index) => <ProductsItem prix={item.Prix_unitaire} titre={item.designation} image={item.img_princ}  onClick={() => history( "/produit", {state: item})} key={index}  />)
                         :
                         null
                 }
