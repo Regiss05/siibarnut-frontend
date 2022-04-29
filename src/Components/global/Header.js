@@ -6,6 +6,9 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import logo from "../../images/logos/3.PNG"
+import {Link} from "react-router-dom";
+import {DropdownMenu, DropdownToggle, UncontrolledDropdown} from "reactstrap";
+import {Menu} from "react-feather";
 function Header() {
 
   const [isScroll, setIsScroll] = useState(false);
@@ -23,37 +26,16 @@ function Header() {
   }, []);
   return (
       <React.Fragment>
-   {/*     <div className="headerTop">
+       <div className="headerTop">
           <div className="container align-items-center d-flex justify-content-between gap-2">
-            <UncontrolledDropdown className="col-5" >
-              <DropdownToggle
-                  tag="button"
-                  className="btn-cat col-12"
-              >
-                <Menu size={20}/> Categories
-              </DropdownToggle>
-              <DropdownMenu className="col-12 menu content">
-                <div onClick={function noRefCheck(){}}>
-                  Custom dropdown item
-                </div>
-                <div onClick={function noRefCheck(){}}>
-                  Custom dropdown item
-                </div>
-                <div onClick={function noRefCheck(){}}>
-                  Custom dropdown item
-                </div>
-                <div onClick={function noRefCheck(){}}>
-                  Custom dropdown item
-                </div>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-            <div className="col-4 d-flex align-items-center justify-content-between">
+
+            <div className="col-12 pt-2 d-flex align-items-center justify-content-xl-end gap-xl-5 justify-content-lg-end gap-lg-5 justify-content-between">
               <Link to="/" className="linkItems">Accueil</Link>
               <Link to="/" className="linkItems">Shop </Link>
               <Link to="/" className="linkItems">A propos de nous</Link>
             </div>
           </div>
-        </div>*/}
+        </div>
     <div className={isScroll ? "header-light" : "header"}>
     <div className="headerContainer container col-12">
       <div className="logo col-2 col-lg-1 col-xl-1 ">

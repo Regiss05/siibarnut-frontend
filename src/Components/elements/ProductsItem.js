@@ -3,8 +3,8 @@ import {ShoppingCart} from "react-feather";
 
 const ProductsItem=({image,titre,prix,onClick})=>{
     return(
-        <div className="col-md-3  mt-4" onClick={onClick}>
-            <div className="card">
+        <div className="col-xl-3 col-lg-3 col-6  mt-4 " onClick={onClick}>
+            <div className="cardp">
                 <div className="text-center overflow-hidden ">
                     <img src={process.env.REACT_APP_BASE_URL+"/img/"+image} className="img-fluid"  alt="imageprod"/></div>
                 <div className="text-center">

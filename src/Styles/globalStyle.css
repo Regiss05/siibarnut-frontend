@@ -2,7 +2,7 @@
     --color-site:#1888cd;
 }
 body{
-    background-color: #f3f4f6;
+    background-color: #fff;
     /*font-family: "Sofia Pro", sans-serif;*/
     font-family: 'DM Sans', sans-serif;
     height: auto;
@@ -84,7 +84,6 @@ footer {
 }
 
 .footer-column:not(:first-child) {
-    padding-top: 2rem;
 }
 @media (min-width: 768px) {
     .footer-column:not(:first-child) {
@@ -93,7 +92,6 @@ footer {
 }
 
 .footer-column {
-    text-align: center;
 }
 .footer-column .nav-item .nav-link {
     padding: 0.1rem 0;
