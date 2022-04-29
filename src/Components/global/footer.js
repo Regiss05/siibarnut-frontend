@@ -8,7 +8,7 @@ import {Email} from "@material-ui/icons";
          <footer>
              <div className="container">
                  <div className="row">
-                     <div className="col-md-4 footer-column">
+                     <div className="col-6 col-md-4  col-xl-4 col-lg-4 footer-column">
                          <ul className="nav flex-column">
                              <li className="nav-item  mb-3">
                                  <span className="footer-title">Apropo de nous</span>
@@ -27,7 +27,7 @@ import {Email} from "@material-ui/icons";
                              </li>
                          </ul>
                      </div>
-                     <div className="col-md-4 footer-column">
+                     <div className="col-6 col-md-4  col-xl-4 col-lg-4 footer-column">
                          <ul className="nav flex-column">
                              <li className="nav-item  mb-3">
                                  <span className="footer-title">Nos App</span>
@@ -44,8 +44,8 @@ import {Email} from "@material-ui/icons";
                              </li>
                          </ul>
                      </div>
-                     <div className="col-md-4 footer-column">
-                         <ul className="nav flex-column ">
+                     <div className="col-12 col-md-4  col-xl-4 col-lg-4 footer-column mt-5 mt-xl-0 mt-lg-0">
+                         <ul className="nav flex-column d-flex col-12">
                              <li className="nav-item mb-3">
                                  <span className="footer-title">Contact & Support</span>
                              </li>

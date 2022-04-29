@@ -4,14 +4,16 @@ import TopSection from "./elements/TopSection";
 import QuickLinks from "./elements/QuickLinks";
 import Products from "./elements/products";
 import Footer from "../../Components/global/footer";
+import {Container} from "reactstrap";
 
 const Home=()=>{
     return(
         <div >
             <Header/>
-               <TopSection/>
-            <QuickLinks/>
-            <Products/>
+            <Container>
+                <TopSection/>
+                <Products/>
+            </Container>
             <Footer/>
         </div>
     )

@@ -7,11 +7,8 @@ import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 
 function RightTop() {
   return (
-    <div className="rightTopContainer col-12 col-xl-4 col-lg-4  mt-4 mt-xl-0 mt-lg-0">
+    <div className="rightTopContainer d-none d-lg-flex d-xl-flex col-12 col-xl-3 col-lg-3  mt-4 mt-xl-0 mt-lg-0">
       <div className="rightTopDiv col-12">
-        <RightOptions Icon={HelpOutlineIcon} title="HELP CENTER" description="Guide To Customer Care" />
-        <RightOptions Icon={DonutLargeIcon} title="EASY RETURN" description="Quick Refund" />
-        <RightOptions Icon={MonetizationOnIcon} title="SELL ON JUMIA" description="Millions Of Visitors" />
       </div>
     </div>
   )
