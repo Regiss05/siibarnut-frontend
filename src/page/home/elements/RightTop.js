@@ -1,9 +1,5 @@
 import React from 'react';
 import '../../../Styles/RightTop.css';
-import RightOptions from './RightOptions';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
-import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 
 function RightTop() {
   return (
