@@ -7,8 +7,6 @@ import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import logo from "../../images/logos/3.PNG"
 import {Link} from "react-router-dom";
-import {DropdownMenu, DropdownToggle, UncontrolledDropdown} from "reactstrap";
-import {Menu} from "react-feather";
 function Header() {
 
   const [isScroll, setIsScroll] = useState(false);
