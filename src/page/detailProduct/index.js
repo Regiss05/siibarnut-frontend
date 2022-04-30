@@ -33,8 +33,8 @@ const DetailProduct = () => {
                                                     ?
                                                 <div className="thumbnail text-center row justify-content-center align-items-center cursor-pointe ">
                                                     {
-                                                        data.images.map((item,index)=><div className="col-3 thumbnailItem" key={index} onClick={()=>setImage(item.image)}>
-                                                            <img  src={process.env.REACT_APP_BASE_URL+"/img/"+item.image}  className="img-fluid" alt="imjh"/>
+                                                        data.images.map((item,index)=><div className="col-4 thumbnailItem" key={index} onClick={()=>setImage(item.image)}>
+                                                            <img  src={process.env.REACT_APP_BASE_URL+"/img/"+item.image}  className="img-fluid imagedetail" alt="imjh"/>
                                                         </div>)
                                                     }
                                             </div>

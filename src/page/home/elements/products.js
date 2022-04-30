@@ -43,7 +43,7 @@ const Products = () => {
     return (
         <div className="container mt-5 mb-5">
             <div className="d-flex justify-content-between align-items-center mb-3"><span>Nos Produits</span>
-                <button className=" btn btn-dark" onClick={getProducts}>Actuliser</button></div>
+                <button className=" btn btn-dark" >Voir plus</button></div>
             {
                 isLog
                     ?
@@ -56,7 +56,7 @@ const Products = () => {
                 {
                     produits
                         ?
-                        produits.map((item, index) => <ProductsItem prix={item.Prix_unitaire} titre={item.designation} image={item.img_princ}  onClick={() => history( "/produit", {state: item})} key={index}  />)
+                        produits.map((item, index) => <ProductsItem prix={item.Prix_unitaire} courte_desc={item.Courte_Description} titre={item.designation} image={item.img_princ}  onClick={() => history( "/produit", {state: item})} key={index}  />)
                         :
                         null
                 }

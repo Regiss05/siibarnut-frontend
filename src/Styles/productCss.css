@@ -6,7 +6,7 @@
 }
 @media all and (min-width: 790px) {
     .cardp {
-        height: 350px;
+        height: 360px;
 
     }
 }
@@ -22,7 +22,7 @@
 
 .cardp {
     border: 2px solid #e8e7e7;
-    padding: 10px 15px 30px 15px;
+    padding: 0px 0px 10px 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,7 +36,8 @@
 }
 
 .cardp img{
-    border-radius: 10px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 .time i {
@@ -50,4 +51,23 @@
     height: 100px;
     width: 100px;
     border-radius: 50px;
+}
+.descProduct{
+    font-weight: lighter;
+    font-size: 14px;
+}
+.itemtop{
+    position: absolute;
+    background-color: var(--color-site);
+    color: #ffffff;
+    border-top-left-radius: 10px;
+    padding: 5px 20px ;
+}
+.itemButton{
+    position: absolute;
+    margin-top: -80px;
+    margin-left: 100px;
+}
+.titreProd{
+    font-weight: bold;
 }

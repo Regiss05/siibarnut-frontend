@@ -35,6 +35,9 @@
   background-color: black;
   border-radius: 50%;
 }
-.slick-active div{
+.slick-dots .slick-active div{
   background-color: var(--color-site) !important;
+}
+.imglg{
+  border-radius: 10px;
 }
