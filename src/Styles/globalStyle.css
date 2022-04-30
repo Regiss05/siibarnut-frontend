@@ -191,16 +191,35 @@ footer .quick-links {
 }
 .productC {
     background: #fff;
-    padding: 20px;
     position: relative;
     border-radius: 8px;
     box-shadow: rgb(3 0 71 / 9%) 0px 1px 3px;
     margin: 10px;
-    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+@media all and (max-width: 759px) {
+    .productC {
+        height: 250px;
+        padding: 20px;
+
+    }
+}
+@media all and (min-width: 760px) and (max-width: 1000px) {
+    .productC {
+        height: 450px;
+        padding: 0px 20px;
+
+    }
+}
+@media all and (min-width: 1001px) {
+    .productC {
+        height: 250px;
+        padding: 20px;
+
+    }
 }
 .productC h3 {
     font-weight: 400;

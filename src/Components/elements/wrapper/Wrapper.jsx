@@ -35,7 +35,7 @@ const Wrapper = () => {
           <div className="row">
           {data.map((val, index) => {
             return (
-              <div className='col-12 col-md-3' key={index}>
+              <div className='col-12 col-md-6 col-lg-3 col-xl-3' key={index}>
               <div className={`productP ${val.classN}`}>
 
                 <div className='img icon-circle'>

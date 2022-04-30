@@ -53,7 +53,7 @@ const Discount = () => {
           {
             isLog
               ?
-                <ProductLoader/>
+                <ProductLoader one/>
                 :
                 produits
                 ?

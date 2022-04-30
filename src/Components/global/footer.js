@@ -86,7 +86,7 @@ import {Email} from "@material-ui/icons";
                              </li>
                          </ul>
                      </div>
-                     <div className="col-md-4 box">
+                     <div className="col-md-4 box ">
                          <ul className="list-inline quick-links">
                              <li className="list-inline-item">
                                  <a href="/">Privacy Policy</a>

@@ -1,10 +1,16 @@
-@media all and (max-width: 780px) {
+@media all and (max-width: 7590px) {
     .cardp {
         height: 300px;
 
     }
 }
-@media all and (min-width: 790px) {
+@media all and (min-width: 760px) and (max-width: 1000px) {
+    .cardp {
+        height: 420px;
+
+    }
+}
+@media all and (min-width: 1001px) {
     .cardp {
         height: 360px;
 

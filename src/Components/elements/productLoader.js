@@ -17,18 +17,24 @@ const ItemsLoader=()=>{
         </div>
     )
 }
-const ProductLoader=()=>{
+const ProductLoader=({one})=>{
     return(
-        <div className="row">
-            <ItemsLoader/>
-            <ItemsLoader/>
-            <ItemsLoader/>
-            <ItemsLoader/>
-            <ItemsLoader/>
-            <ItemsLoader/>
-            <ItemsLoader/>
-            <ItemsLoader/>
-        </div>
+            one
+            ?
+            <div className="row">
+                <ItemsLoader/>
+                <ItemsLoader/>
+                <ItemsLoader/>
+                <ItemsLoader/>
+                <ItemsLoader/>
+                <ItemsLoader/>
+                <ItemsLoader/>
+                <ItemsLoader/>
+            </div>
+            :
+            <div className="row">
+                <ItemsLoader/>
+            </div>
     )
 }
 export default ProductLoader
