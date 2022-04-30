@@ -65,9 +65,9 @@ function MiddleTop() {
   return (
     <div className="middleTopContainer col-12 col-xl-9 col-lg-9 ">
       <Slider {...settings}>
-       <img src={image1} alt="imglg" />
-       <img src={image2} alt="imglg" />
-       <img src={image3} alt="imglg" />
+       <img src={image1} alt="imglg" className="imglg" />
+       <img src={image2} alt="imglg" className="imglg"  />
+       <img src={image3} alt="imglg" className="imglg"  />
       </Slider>
     </div>
   )

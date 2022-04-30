@@ -1,6 +1,6 @@
 .cards {
     border: none;
-    background-color: #ffffff;
+    background-color: #f6f6f8;
 }
 
 .product {
@@ -79,4 +79,7 @@ label.radio input:checked+span {
 }
 .text-muted3{
     color: #1a1d20;
+}
+.imagedetail{
+    height: 100px;
 }

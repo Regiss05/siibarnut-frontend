@@ -4,6 +4,7 @@ import Header from "../../Components/global/Header";
 import Footer from "../../Components/global/footer";
 import "../../Styles/datailProdCss.css"
 import {ArrowLeft} from "@material-ui/icons";
+import Discount from "../../Components/elements/discount/Discount";
 
 const DetailProduct = () => {
     const location = useLocation();
@@ -33,8 +34,8 @@ const DetailProduct = () => {
                                                     ?
                                                 <div className="thumbnail text-center row justify-content-center align-items-center cursor-pointe ">
                                                     {
-                                                        data.images.map((item,index)=><div className="col-3 thumbnailItem" key={index} onClick={()=>setImage(item.image)}>
-                                                            <img  src={process.env.REACT_APP_BASE_URL+"/img/"+item.image}  className="img-fluid" alt="imjh"/>
+                                                        data.images.map((item,index)=><div className="col-4 thumbnailItem" key={index} onClick={()=>setImage(item.image)}>
+                                                            <img  src={process.env.REACT_APP_BASE_URL+"/img/"+item.image}  className="img-fluid imagedetail" alt="imjh"/>
                                                         </div>)
                                                     }
                                             </div>
@@ -62,12 +63,18 @@ const DetailProduct = () => {
                                             <h5>Description</h5>
                                             <p className="about">{data.Longue_Description}</p>
                                             <div className="sizes mt-5">
-                                                <h6 className="text-uppercase">Size</h6> <label className="radio">
-                                                <input type="radio" name="size" value="S" checked/> <span>S</span>
-                                            </label>
-                                                <label className="radio">
-                                                    <input type="radio" name="size" value="M"/> <span>M</span>
-                                                </label>
+                                                <h6 className="text-uppercase">Couleur</h6>
+                                                {
+                                                    data?.couleur
+                                                        ?
+                                                        data.couleur.split(',').map((item,index)=> <label className="radio mx-1" key={index}>
+                                                            <input type="radio" name="size" value="S" checked/>
+                                                            <span>{item}</span>
+                                                        </label>)
+
+                                                        :
+                                                        null
+                                                }
                                             </div>
                                             <div className="cart mt-4 align-items-center">
                                                 <button className="btn btn-danger text-uppercase mr-2 px-4 ">Add to
@@ -86,6 +93,8 @@ const DetailProduct = () => {
                     null
                 }
         </div>
+            <Discount />
+
     <Footer/>
 </main>
 )
