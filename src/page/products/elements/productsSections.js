@@ -5,7 +5,7 @@ import axios from "axios";
 import ProductLoader from "../../../Components/elements/productLoader";
 import {Link, useNavigate} from "react-router-dom";
 
-const Products = () => {
+const ProductsSections = () => {
     const [produits,setProducts]=useState(null)
     const [isLog, setislog] = useState(false);
     const history = useNavigate();
@@ -43,7 +43,7 @@ const Products = () => {
     return (
         <div className="container mt-5 mb-5">
             <div className="d-flex justify-content-between align-items-center mb-3"><span>Nos Produits</span>
-                <Link to="produits" className=" btn btn-dark" >Voir tout</Link></div>
+            </div>
             {
                 isLog
                     ?
@@ -65,4 +65,4 @@ const Products = () => {
         </div>
     )
 }
-export default Products;
+export default ProductsSections;

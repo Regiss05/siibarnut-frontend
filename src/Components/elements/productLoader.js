@@ -19,7 +19,7 @@ const ItemsLoader=()=>{
 }
 const ProductLoader=({one})=>{
     return(
-            one
+            !one
             ?
             <div className="row">
                 <ItemsLoader/>
