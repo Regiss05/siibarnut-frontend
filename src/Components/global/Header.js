@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import '../../Styles/Header.css';
 import { Search } from '@material-ui/icons';
 import logo from "../../images/logos/3.PNG"
-import {Link, NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import TopHeaderMobile from "./topHeaderMobile";
 import {LogOut, ShoppingCart, User} from "react-feather";
 import {Arrow, useLayer} from "react-laag";

@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../../Styles/RightTop.css';
-import CatItem from "../../../Components/elements/catItem";
 
 function RightTop() {
     const data = [

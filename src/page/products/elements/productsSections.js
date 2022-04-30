@@ -3,7 +3,7 @@ import "../../../Styles/productCss.css"
 import ProductsItem from "../../../Components/elements/ProductsItem";
 import axios from "axios";
 import ProductLoader from "../../../Components/elements/productLoader";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const ProductsSections = () => {
     const [produits,setProducts]=useState(null)
