@@ -14,7 +14,6 @@ const DetailProduct = () => {
     const [image,setImage]=useState(data?.img_princ);
     return (
         <main className="">
-            <Header/>
             <div className="conteiant-site">
                 {
                     data

@@ -10,7 +10,6 @@ import Wrapper from "../../Components/elements/wrapper/Wrapper";
 const Home=()=>{
     return(
         <div >
-            <Header/>
             <Container>
                 <TopSection/>
             </Container>
