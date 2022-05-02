@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../../Components/global/Header";
 import Footer from "../../Components/global/footer";
 import {Container} from "reactstrap";
 import ProductsSections from "./elements/productsSections";

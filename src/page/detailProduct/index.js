@@ -1,6 +1,5 @@
 import React, {useState} from "react"
 import {useLocation, useNavigate} from "react-router-dom";
-import Header from "../../Components/global/Header";
 import Footer from "../../Components/global/footer";
 import "../../Styles/datailProdCss.css"
 import {ArrowLeft} from "@material-ui/icons";

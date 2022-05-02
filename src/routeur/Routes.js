@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Routes as AppRoutes, } from 'react-router-dom'
 import {Routes as SiteRoutes} from "./routes/";
 import Layout from "../layout";
-import {Spinner} from "reactstrap";
 import ProductLoader from "../Components/elements/productLoader";
 
 const Load=()=>{
