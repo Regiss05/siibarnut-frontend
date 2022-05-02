@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import {AuthContext} from "../../../context/auth";
-import {InputGroup, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import {InputGroup, Modal, ModalBody, ModalFooter, ModalHeader, Spinner} from "reactstrap";
 import logo from "../../../images/logos/2.PNG"
 import IntlTelInput from 'react-intl-tel-input';
 import 'react-intl-tel-input/dist/main.css';
@@ -65,8 +65,14 @@ const AuthModal=()=>{
                 </div>
                     <div className="col-12 mt-3 ">
                     <div className=" p-1 col-12 ">
-                        <InputGroup>
-                          <button className="col-12 btn btn-dark" onClick={handlerLogin}>Connexion</button>
+                        <InputGroup>{
+                            !isLoaderUser
+                                ?
+                            <button className="col-12 btn btn-dark" onClick={handlerLogin}>Connexion</button>
+                                :
+                            <div className="col-12 text-center flex justify-content-center align-items-center">
+                            <Spinner>...Loader</Spinner>
+                            </div>}
                         </InputGroup>
                         </div>
                 </div>

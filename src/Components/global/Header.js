@@ -29,7 +29,7 @@ function Header() {
   function close() {
     setOpen(false);
   }
-  const {isLogin}=useContext(AuthContext);
+  const {isLogin,logout,openModalAuth}=useContext(AuthContext);
   const { renderLayer, triggerProps, layerProps, arrowProps } = useLayer({
     isOpen,
     onOutsideClick: close,
@@ -86,11 +86,11 @@ function Header() {
                       {isLogin
                           ?
                         <li>
-                        <button className="logout  btn-sm   btn" onClick={null}><LogOut className="iconlog" size={18}/><span>Déconnexion</span></button>
+                        <button className="logout  btn-sm   btn" onClick={logout}><LogOut className="iconlog" size={18}/><span>Déconnexion</span></button>
                       </li>
                           :
                         <li>
-                        <button className="logout  btn-sm   btn" onClick={null}><LogOut className="iconlog" size={18}/><span>Connexion</span></button>
+                        <button className="logout  btn-sm   btn" onClick={openModalAuth}><LogOut className="iconlog" size={18}/><span>Connexion</span></button>
                       </li>
                       }
                       <hr/>
