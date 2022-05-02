@@ -9,7 +9,6 @@ import Discount from "../../Components/elements/discount/Discount";
 const Products=()=>{
     return(
        <div>
-           <Header/>
            <Discount/>
            <CategorieSection/>
            <Container>

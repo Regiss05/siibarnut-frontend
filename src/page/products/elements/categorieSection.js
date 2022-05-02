@@ -3,35 +3,35 @@ import React from "react";
 const CategorieSection=()=>{
     const data = [
         {
-            cover: "http://muda-backend.webmaster019.com/img/865523742fkmac1.jpeg",
+            cover: "http://muda-backend.galafly.com/img/865523742fkmac1.jpeg",
             title: "Ordinateur",
         },
         {
-            cover: "http://muda-backend.webmaster019.com/img/865523742fkmac1.jpeg",
+            cover: "http://muda-backend.galafly.com/img/865523742fkmac1.jpeg",
             title: "Ordinateur",
         },
         {
-            cover: "http://muda-backend.webmaster019.com/img/865523742fkmac1.jpeg",
+            cover: "http://muda-backend.galafly.com/img/865523742fkmac1.jpeg",
             title: "Ordinateur",
         },
         {
-            cover: "http://muda-backend.webmaster019.com/img/865523742fkmac1.jpeg",
+            cover: "http://muda-backend.galafly.com/img/865523742fkmac1.jpeg",
             title: "Ordinateur",
         },
         {
-            cover: "http://muda-backend.webmaster019.com/img/1575168357fkii13.jpeg",
+            cover: "http://muda-backend.galafly.com/img/1575168357fkii13.jpeg",
             title: "Téléphone",
         },
         {
-            cover: "http://muda-backend.webmaster019.com/img/865523742fkmac1.jpeg",
+            cover: "http://muda-backend.galafly.com/img/865523742fkmac1.jpeg",
             title: "Téléphone",
         },
         {
-            cover: "http://muda-backend.webmaster019.com/img/865523742fkmac1.jpeg",
+            cover: "http://muda-backend.galafly.com/img/865523742fkmac1.jpeg",
             title: "Téléphone",
         },
         {
-            cover: "http://muda-backend.webmaster019.com/img/865523742fkmac1.jpeg",
+            cover: "http://muda-backend.galafly.com/img/865523742fkmac1.jpeg",
             title: "Téléphone",
         },
     ]
