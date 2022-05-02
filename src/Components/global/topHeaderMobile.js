@@ -1,16 +1,18 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {ArrowRight, LogOut, Menu, ShoppingCart, User} from "react-feather";
 import {Link} from "react-router-dom";
 import {Offcanvas, OffcanvasBody, OffcanvasHeader} from "reactstrap";
 import logoImage from "../../images/logos/3.PNG"
 import {Arrow, useLayer} from "react-laag";
 import {AnimatePresence,motion} from "framer-motion/dist/framer-motion";
+import {AuthContext} from "../../context/auth";
 const TopHeaderMobile=()=>{
     const [openMenu,setOpenMenu]=useState(false)
     const [isOpen, setOpen] = React.useState(false);
     function close() {
         setOpen(false);
     }
+    const {isLogin,logout,openModalAuth}=useContext(AuthContext);
     const { renderLayer, triggerProps, layerProps, arrowProps } = useLayer({
         isOpen,
         onOutsideClick: close,
@@ -39,7 +41,16 @@ const TopHeaderMobile=()=>{
                         <AnimatePresence>
                             {isOpen && (
                                 <motion.ul {...layerProps} className="menulist">
-                                    <li><button className="logout  btn-sm   btn" onClick={null}><LogOut className="iconlog" size={18}/><span>Déconnexion</span></button></li>
+                                    {isLogin
+                                        ?
+                                        <li>
+                                            <button className="logout  btn-sm   btn" onClick={logout}><LogOut className="iconlog" size={18}/><span>Déconnexion</span></button>
+                                        </li>
+                                        :
+                                        <li>
+                                            <button className="logout  btn-sm   btn" onClick={openModalAuth}><LogOut className="iconlog" size={18}/><span>Connexion</span></button>
+                                        </li>
+                                    }
                                     <hr/>
                                     <ul style={{marginLeft:-10}}>
                                     </ul>
