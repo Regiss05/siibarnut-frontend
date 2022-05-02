@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import {AuthContext} from "../../../context/auth";
-import {InputGroup, Modal, ModalBody, ModalFooter, ModalHeader, Spinner} from "reactstrap";
+import {InputGroup, Modal, ModalBody, ModalHeader, Spinner} from "reactstrap";
 import logo from "../../../images/logos/2.PNG"
 import IntlTelInput from 'react-intl-tel-input';
 import 'react-intl-tel-input/dist/main.css';
