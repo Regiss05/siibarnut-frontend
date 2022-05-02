@@ -333,7 +333,7 @@ footer .quick-links {
     border-radius: 5px;
     -webkit-box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
-    z-index: 3;
+    z-index: 1001;
 }
 .logout{
     text-align: center;
@@ -459,3 +459,38 @@ footer .quick-links {
     margin-top: 01px;
 }
 
+.bodyModal{
+    min-height: 40vh;
+    height: auto;
+    padding: 0px 0px 20px 0px;
+}
+.logo2{
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+}
+.PhoneInputCont{
+    border: none;
+    padding: 5px 5px;
+    border-radius: 10px;
+}
+.PhoneInputCont2{
+    border: 1px solid #c6c1c1;
+    padding: 5px;
+    border-radius: 5px;
+    outline:none;
+}
+.PhoneInputInput{
+}
+.inputMy{
+    border: none;
+    outline: none;
+}
+.inputMy:focus,.inputMy:hover{
+    border: none;
+    outline: none;
+}
+.PhoneInputCont2:focus-within{
+    border-radius: 5px;
+    outline: rgba(10, 114, 255, 0.38) 4px solid;
+}

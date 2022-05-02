@@ -4,6 +4,7 @@ import ProductsItem from "../../../Components/elements/ProductsItem";
 import axios from "axios";
 import ProductLoader from "../../../Components/elements/productLoader";
 import {Link, useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
 const Products = () => {
     const [produits,setProducts]=useState(null)
@@ -28,13 +29,29 @@ const Products = () => {
                     console.log(response.data)
                     setProducts(response.data?.data);
                 }else {
-                    alert(response?.data?.message,"Erreur")
+                    toast.error(response?.data?.message, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
                 }
             })
             .catch(err => {
                 setislog(false)
                 console.log(err.response);
-                alert("Problème de connexion","Erreur")
+                toast.error('Problème de connexion', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             });
     }
     useEffect(()=>{

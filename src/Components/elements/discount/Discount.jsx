@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import Dcard from "./Dcard"
 import axios from "axios";
 import ProductLoader from "../productLoader";
+import {toast} from "react-toastify";
 
 const Discount = () => {
 
@@ -27,13 +28,29 @@ const Discount = () => {
             console.log(response.data)
             setProducts(response.data?.data);
           }else {
-            alert(response?.data?.message,"Erreur")
+            toast.error(response?.data?.message, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
           }
         })
         .catch(err => {
           setislog(false)
           console.log(err.response);
-          alert("Problème de connexion","Erreur")
+          toast.error('Problème de connexion', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         });
   }
   useEffect(()=>{

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import '../../Styles/Header.css';
 import { Search } from '@material-ui/icons';
 import logo from "../../images/logos/3.PNG"
@@ -7,6 +7,9 @@ import TopHeaderMobile from "./topHeaderMobile";
 import {LogOut, ShoppingCart, User} from "react-feather";
 import {Arrow, useLayer} from "react-laag";
 import {AnimatePresence,motion} from "framer-motion/dist/framer-motion";
+import {AuthContext} from "../../context/auth";
+import AuthModal from "../elements/AuthModal";
+
 function Header() {
 
   const [isScroll, setIsScroll] = useState(false);
@@ -26,6 +29,7 @@ function Header() {
   function close() {
     setOpen(false);
   }
+  const {isLogin}=useContext(AuthContext);
   const { renderLayer, triggerProps, layerProps, arrowProps } = useLayer({
     isOpen,
     onOutsideClick: close,
@@ -39,6 +43,7 @@ function Header() {
   });
   return (
       <React.Fragment>
+        <AuthModal/>
        <div className="headerTop">
           <div className="container align-items-center d-flex justify-content-between gap-2">
 
@@ -78,7 +83,16 @@ function Header() {
               <AnimatePresence>
                 {isOpen && (
                     <motion.ul {...layerProps} className="menulist">
-                      <li><button className="logout  btn-sm   btn" onClick={null}><LogOut className="iconlog" size={18}/><span>Déconnexion</span></button></li>
+                      {isLogin
+                          ?
+                        <li>
+                        <button className="logout  btn-sm   btn" onClick={null}><LogOut className="iconlog" size={18}/><span>Déconnexion</span></button>
+                      </li>
+                          :
+                        <li>
+                        <button className="logout  btn-sm   btn" onClick={null}><LogOut className="iconlog" size={18}/><span>Connexion</span></button>
+                      </li>
+                      }
                       <hr/>
                       <ul style={{marginLeft:-10}}>
                       </ul>
