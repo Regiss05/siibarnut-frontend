@@ -14,7 +14,7 @@ const Discount = () => {
     setislog(true)
     console.log("get")
     const options = {
-      url: process.env.REACT_APP_BASE_URL + "/product" ,
+      url: process.env.REACT_APP_BASE_URL + "/product?top=1" ,
       method: 'GET',
       headers: {
         'Accept': 'application/json',
