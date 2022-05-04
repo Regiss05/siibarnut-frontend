@@ -494,3 +494,9 @@ footer .quick-links {
     border-radius: 5px;
     outline: rgba(10, 114, 255, 0.38) 4px solid;
 }
+.slick-arrow{
+    background-color: #0a58ca !important;
+    height: 50px !important;
+    border-radius: 25px;
+
+}
