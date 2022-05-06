@@ -44,6 +44,7 @@ const AuthProviderWrapper = ({children}) => {
                         localStorage.setItem("TokenUser",response.data.data.Token)
                         localStorage.setItem("userData",JSON.stringify(response.data.data.user))
                         closeModalAuth()
+                        setIsLogin(true)
                         toast.success(response?.data?.message, {
                             position: "top-right",
                             autoClose: 5000,
