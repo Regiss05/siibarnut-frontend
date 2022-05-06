@@ -10,7 +10,9 @@ const Products=()=>{
     return(
        <div>
            <Discount/>
-           <CategorieSection setcategorie={setCategorie}/>
+           <CategorieSection setcategorie={(value)=> {
+               setCategorie(value)
+           }}/>
            <Container>
                <ProductsSections categorie={categorie}/>
            </Container>

@@ -87,12 +87,14 @@ const ProductsSections = ({categorie}) => {
     useEffect(()=>{
         // eslint-disable-next-line
         getProducts();
-    })
+    }, // eslint-disable-next-line
+        [])
     useEffect(()=>{
-
         getProducts();
-    },// eslint-disable-next-line
-        [categorie])
+    },
+        // eslint-disable-next-line
+        [categorie]
+    )
     return (
         <div className="container mt-5 mb-5">
             <div className="d-flex justify-content-between align-items-center mb-3"><span>Nos Produits</span>
