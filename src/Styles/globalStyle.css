@@ -203,14 +203,51 @@ footer .quick-links {
 @media all and (max-width: 759px) {
     .productC {
         height: 250px;
-        padding: 20px;
+
+    }
+
+    .productC .img {
+        padding:20px;
+    }
+    .productC img {
+        max-height: 230px;
+    }
+    .prixcontainer {
+        height: 250px;
+        position: absolute;
+        background-color: rgba(24, 23, 23, 0.08);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 5px;
+
 
     }
 }
 @media all and (min-width: 760px) and (max-width: 1000px) {
     .productC {
         height: 450px;
-        padding: 0px 20px;
+
+    }
+    .productC .img {
+        padding:  0px 20px;
+    }
+    .productC img {
+        max-height: 400px;
+    }
+    .prixcontainer {
+        height: 450px;
+        position: absolute;
+        background-color: rgba(24, 23, 23, 0.08);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 5px;
+
 
     }
 }
