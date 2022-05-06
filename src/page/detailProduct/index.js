@@ -1,9 +1,10 @@
-import React, {useState} from "react"
+import React, {useContext, useState} from "react"
 import {useLocation, useNavigate} from "react-router-dom";
 import Footer from "../../Components/global/footer";
 import "../../Styles/datailProdCss.css"
 import {ArrowLeft} from "@material-ui/icons";
 import Discount from "../../Components/elements/discount/Discount";
+import {CardContext} from "../../context/cart";
 
 const DetailProduct = () => {
     const location = useLocation();
@@ -11,6 +12,7 @@ const DetailProduct = () => {
     console.log("location", location)
     const history = useNavigate();
     const [image,setImage]=useState(data?.img_princ);
+    const {addToCart}=useContext(CardContext);
     return (
         <main className="">
             <div className="conteiant-site">
@@ -75,7 +77,10 @@ const DetailProduct = () => {
                                                 }
                                             </div>
                                             <div className="cart mt-4 align-items-center">
-                                                <button className="btn btn-danger text-uppercase mr-2 px-4 ">Add to
+                                                <button className="btn btn-danger text-uppercase mr-2 px-4 " onClick={()=>{
+                                                    addToCart(data)
+                                                }
+                                                }>Add to
                                                     cart
                                                 </button>
                                                 {/* <i className="fa fa-share-alt text-muted"/>*/}

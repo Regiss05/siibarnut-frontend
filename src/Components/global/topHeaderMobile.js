@@ -6,6 +6,7 @@ import logoImage from "../../images/logos/3.PNG"
 import {Arrow, useLayer} from "react-laag";
 import {AnimatePresence,motion} from "framer-motion/dist/framer-motion";
 import {AuthContext} from "../../context/auth";
+import {CardContext} from "../../context/cart";
 const TopHeaderMobile=()=>{
     const [openMenu,setOpenMenu]=useState(false)
     const [isOpen, setOpen] = React.useState(false);
@@ -24,6 +25,7 @@ const TopHeaderMobile=()=>{
         containerOffset: 16,
         arrowOffset: 16 ,
     });
+    const {CartItem}=useContext(CardContext);
     return(
         <React.Fragment>
         <div className="row col-12">
@@ -59,7 +61,7 @@ const TopHeaderMobile=()=>{
                             )}
                         </AnimatePresence>
                     )}
-                    <Link to="/" className="btnlink"><ShoppingCart color="#fff"/><span className="countItemCard">0</span></Link>
+                    <Link to="/card" className="btnlink"><ShoppingCart color="#fff"/><span className="countItemCard">{CartItem.length === 0 ? "0" : CartItem.length}</span></Link>
                 </div>
         </div>
             <Offcanvas toggle={()=>setOpenMenu(false)} isOpen={openMenu}>
@@ -69,9 +71,9 @@ const TopHeaderMobile=()=>{
                        <img src={logoImage} alt="logoimg" className="logoManu"/>
                    </div>
                    <div className="col-12 d-flex justify-content-start align-items-center flex-column">
-                       <Link to="/" className="menuMobilItem col-12 d-flex justify-content-between mt-1">Accueil <ArrowRight color="#000"/></Link>
-                       <Link to="/produits" className="menuMobilItem col-12 d-flex justify-content-between mt-1">Produits <ArrowRight color="#000"/></Link>
-                       <Link to="/" className="menuMobilItem col-12 d-flex justify-content-between mt-1">A propos de nous  <ArrowRight color="#000"/></Link>
+                       <Link to="/" className="menuMobilItem col-12 d-flex justify-content-between mt-1" onclick={close}>Accueil <ArrowRight color="#000"/></Link>
+                       <Link to="/produits" className="menuMobilItem col-12 d-flex justify-content-between mt-1" onclick={close}>Produits <ArrowRight color="#000"/></Link>
+                       <Link to="/" className="menuMobilItem col-12 d-flex justify-content-between mt-1" onclick={close}>A propos de nous  <ArrowRight color="#000"/></Link>
                    </div>
 
                 </OffcanvasBody>

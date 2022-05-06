@@ -12,6 +12,7 @@ import AuthModal from "../elements/AuthModal";
 import axios from "axios";
 import {toast} from "react-toastify";
 import ContentLoader from "react-content-loader";
+import {CardContext} from "../../context/cart";
 
 function Header() {
   const [produits,setProducts]=useState(null)
@@ -125,6 +126,7 @@ function Header() {
     setOpen(false);
   }
   const {isLogin,logout,openModalAuth}=useContext(AuthContext);
+  const {CartItem}=useContext(CardContext);
   const { renderLayer, triggerProps, layerProps, arrowProps } = useLayer({
     isOpen,
     onOutsideClick: close,
@@ -240,7 +242,7 @@ function Header() {
                 )}
               </AnimatePresence>
           )}
-          <Link to="/" className="btnlink"><ShoppingCart color="#000"/><span className="countItemCard">0</span></Link>
+          <Link to="/card" className="btnlink"><ShoppingCart color="#000"/><span className="countItemCard">{CartItem.length === 0 ? "0" : CartItem.length}</span></Link>
         </div>
       </div>
     </div>
