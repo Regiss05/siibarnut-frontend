@@ -19,6 +19,7 @@ function Header() {
   const getProducts=(searchtext)=>{
     setislog(true)
     console.log("search",searchtext)
+    // eslint-disable-next-line
     if (searchtext != "") {
       const options = {
         url: process.env.REACT_APP_BASE_URL + "/product/search",
@@ -164,6 +165,7 @@ function Header() {
         <div className="headerSearch col-12">
           <Search/>
           <input className="inputContainer col-11" placeholder="Search " onChange={e=>{
+            // eslint-disable-next-line
             if (e.target.value=="" || e.target.value==null ){
               setProducts(null)
             }else {
