@@ -216,8 +216,26 @@ footer .quick-links {
 }
 @media all and (min-width: 1001px) {
     .productC {
-        height: 250px;
-        padding: 20px;
+        height: 150px;
+
+    }
+    .productC .img {
+        padding: 10px;
+    }
+    .productC img {
+        max-height: 120px;
+    }
+    .prixcontainer {
+        height: 150px;
+        position: absolute;
+        background-color: rgba(24, 23, 23, 0.08);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 5px;
+
 
     }
 }
@@ -277,14 +295,16 @@ footer .quick-links {
     justify-content: space-between;
 }
 .productC h4{
-    font-weight: normal;
+    font-weight: bold;
     font-size: 15px;
     margin-top: 01px;
+    color: #ffffff;
+
 }
 .productC span{
     font-weight: normal;
     font-size: 13px;
-    color: var(--color-site);
+    color:#ffffff;
 }
 .btn-manu{
     background-color:transparent;
@@ -432,6 +452,7 @@ footer .quick-links {
     .productDs {
         height: 50px;
         padding: 0px 20px 10px 20px;
+        cursor: pointer;
 
     }
 }
@@ -439,6 +460,7 @@ footer .quick-links {
     .productDs {
         height: 200px;
         padding: 0px 20px 10px 20px;
+        cursor: pointer;
 
     }
 }
@@ -446,6 +468,7 @@ footer .quick-links {
     .productDs {
         padding: 10px 20px 10px 10px;
         height: 80px;
+        cursor: pointer;
 
     }
 }
@@ -499,4 +522,11 @@ footer .quick-links {
     height: 50px !important;
     border-radius: 25px;
 
+}
+.mtSect{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(11, 48, 173, 0.62);
+    padding: 10px;
+    border-radius: 20px;
 }
