@@ -19,15 +19,11 @@ function RightTop() {
   return (
     <div className="rightTopContainer d-none d-xl-flex d-lg-flex  col-12 col-xl-3 col-lg-3  mt-4 mt-xl-0 mt-lg-0">
       <div className="rightTopDiv col-12 row">
-          <h5>Top Categories</h5>
           {
               data.map((item,index)=>   <div className="col-6 col-xl-12 col-lg-12" key={index}>
                   <div className='box productD' >
                       <div className='img'>
                           <img src={item.cover} alt='' width='100%' />
-                      </div>
-                      <div>
-                          <h4>{item.title}</h4>
                       </div>
                   </div>
               </div>)
