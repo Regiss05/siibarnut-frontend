@@ -3,12 +3,14 @@ import { Route, Routes as AppRoutes, } from 'react-router-dom'
 import {Routes as SiteRoutes} from "./routes/";
 import Layout from "../layout";
 import ProductLoader from "../Components/elements/productLoader";
+import {Container} from "reactstrap";
 
 const Load=()=>{
     return(
-        <div className="col-12 ">
-           <ProductLoader/>
-        </div>
+        <Container>
+            <ProductLoader/>
+        </Container>
+
     )
 }
 const Routes=()=>{

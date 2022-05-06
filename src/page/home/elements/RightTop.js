@@ -17,7 +17,7 @@ function RightTop() {
         },
     ]
   return (
-    <div className="rightTopContainer  col-12 col-xl-3 col-lg-3  mt-4 mt-xl-0 mt-lg-0">
+    <div className="rightTopContainer d-none d-xl-flex d-lg-flex  col-12 col-xl-3 col-lg-3  mt-4 mt-xl-0 mt-lg-0">
       <div className="rightTopDiv col-12 row">
           <h5>Top Categories</h5>
           {

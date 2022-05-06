@@ -63,7 +63,7 @@ const Discount = () => {
         <div className='container'>
           <div className='heading d_flex'>
             <div className='heading-left row  f_flex'>
-              <h5>Top Products</h5>
+              <h5>Promotions</h5>
             </div>
           </div>
 

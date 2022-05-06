@@ -15,7 +15,7 @@ const Products = () => {
         setislog(true)
         console.log("get")
         const options = {
-            url: process.env.REACT_APP_BASE_URL + "/product" ,
+            url: process.env.REACT_APP_BASE_URL + "/product?ofset=24" ,
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -73,7 +73,7 @@ const Products = () => {
                 {
                     produits
                         ?
-                        produits.map((item, index) => <ProductsItem prix={item.Prix_unitaire} courte_desc={item.Courte_Description} titre={item.designation} image={item.img_princ}  onClick={() => history( "/produit", {state: item})} key={index}  />)
+                        produits.map((item, index) => <ProductsItem prix={item.Prix_unitaire} courte_desc={item.Courte_Description} titre={item.designation} image={item.img_princ} prix_solde={item.prix_de_Solde}  onClick={() => history( "/produit", {state: item})} key={index}  />)
                         :
                         null
                 }
