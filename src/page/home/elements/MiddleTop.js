@@ -1,8 +1,8 @@
 import React from 'react';
 import '../../../Styles/MiddleTop.css';
-import image1 from '../../../images/firstimage.jpg';
-import image2 from '../../../images/secondimage.jpg';
-import image3 from '../../../images/thirdimage.gif';
+import image1 from '../../../images/ulistartion/mm1.jpg';
+import image2 from '../../../images/ulistartion/mm2.jpg';
+import image3 from '../../../images/ulistartion/mm3.jpg';
 import Slider from "react-slick";
 function MiddleTop() {
   const settings = {
