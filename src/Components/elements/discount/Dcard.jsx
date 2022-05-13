@@ -45,6 +45,8 @@ const Dcard = ({data}) => {
           slidesToScroll: 2,
           arrows: false,
           classNames: "col-12",
+          infinite:data.length > 2 ? true :false,
+          autoplay: data.length > 2 ? true :false,
         }
       }
     ]
