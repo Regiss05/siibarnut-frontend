@@ -1,33 +1,51 @@
-import React, {useState, createContext} from "react";
+import React, {useState, createContext, useEffect} from "react";
 const Context=createContext();
 
 const CardProviderWrapper = ({children}) => {
     const [CartItem, setCartItem] = useState([])
-    const addToCart = (product) => {
+    useEffect( ()=>{
+         const itemsCart= localStorage.getItem("CartItem");
+        if (itemsCart){
+             setCartItem(JSON.parse(itemsCart));
+        }
+    },
+        // eslint-disable-next-line
+        [])
+    useEffect( ()=>{
+            localStorage.setItem("CartItem",JSON.stringify(CartItem))
+    },
+        // eslint-disable-next-line
+        [CartItem])
+    const addToCart =async (product) => {
         const productExit = CartItem.find((item) => item.id_produits === product.id_produits)
         if (productExit) {
-            setCartItem(CartItem.map((item) => (item.id_produits === product.id_produits ? { ...productExit, qty: productExit.qty + 1 } : item)))
+            await setCartItem(CartItem.map((item) => (item.id_produits === product.id_produits ? { ...productExit, qty: productExit.qty + 1 } : item)))
+            await localStorage.setItem("CartItem",JSON.stringify(CartItem))
 
         } else {
-            setCartItem([...CartItem, { ...product, qty: 1 }])
+           await setCartItem([...CartItem, { ...product, qty: 1 }])
+           await localStorage.setItem("CartItem",JSON.stringify(CartItem))
         }
     }
 
-    const decreaseQty = (product) => {
+    const decreaseQty = async (product) => {
         const productExit = CartItem.find((item) => item.id_produits === product.id_produits)
 
         if (productExit.qty === 1) {
-            setCartItem(CartItem.filter((item) => item.id_produits !== product.id_produits))
+            await setCartItem(CartItem.filter((item) => item.id_produits !== product.id_produits))
+            await localStorage.setItem("CartItem",JSON.stringify(CartItem))
         } else {
-            setCartItem(CartItem.map((item) => (item.id_produits === product.id_produits ? { ...productExit, qty: productExit.qty - 1 } : item)))
+            await setCartItem(CartItem.map((item) => (item.id_produits === product.id_produits ? { ...productExit, qty: productExit.qty - 1 } : item)))
+            await localStorage.setItem("CartItem",JSON.stringify(CartItem))
         }
     }
 
-    const deleteProduct = (product) => {
+    const deleteProduct = async (product) => {
         const productExit = CartItem.find((item) => item.id_produits === product.id_produits)
 
         if (productExit) {
-            setCartItem(CartItem.filter((item) => item.id_produits !== product.id_produits))
+           await setCartItem(CartItem.filter((item) => item.id_produits !== product.id_produits))
+            await localStorage.setItem("CartItem",JSON.stringify(CartItem))
         }
     }
 
