@@ -4,7 +4,7 @@ import {CardContext} from "../../context/cart";
 
 const Cart = () => {
     // Stpe: 7   calucate total of items
-    const {addToCart,decreaseQty,CartItem}=useContext(CardContext);
+    const {addToCart,decreaseQty,CartItem,deleteProduct}=useContext(CardContext);
     const totalPrice = CartItem.reduce((price, item) => price + item.qty * item.Prix_unitaire, 0)
 
     // prodcut qty total
@@ -36,7 +36,7 @@ const Cart = () => {
                                     </div>
                                     <div className='cart-items-function'>
                                         <div className='removeCart'>
-                                            <button className=' btn btn-danger'>
+                                            <button className=' btn btn-danger' onClick={() => deleteProduct(item)}>
                                                 <i className='fa-solid fa-xmark'></i>
                                             </button>
                                         </div>

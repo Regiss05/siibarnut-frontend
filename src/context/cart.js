@@ -23,9 +23,17 @@ const CardProviderWrapper = ({children}) => {
         }
     }
 
+    const deleteProduct = (product) => {
+        const productExit = CartItem.find((item) => item.id_produits === product.id_produits)
+
+        if (productExit) {
+            setCartItem(CartItem.filter((item) => item.id_produits !== product.id_produits))
+        }
+    }
+
 
     return (
-        <Context.Provider value={{addToCart,CartItem,decreaseQty}}>
+        <Context.Provider value={{addToCart,CartItem,decreaseQty,deleteProduct}}>
             {children}
         </Context.Provider>
     )
