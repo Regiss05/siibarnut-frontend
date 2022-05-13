@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import {useLocation, useNavigate} from "react-router-dom";
 import Footer from "../../Components/global/footer";
 import "../../Styles/datailProdCss.css"
@@ -13,8 +13,11 @@ const DetailProduct = () => {
     const history = useNavigate();
     const [image,setImage]=useState(data?.img_princ);
     const {addToCart}=useContext(CardContext);
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    },[])
     return (
-        <main className="">
+        <div className="">
             <div className="conteiant-site">
                 {
                     data
@@ -99,7 +102,7 @@ const DetailProduct = () => {
             <Discount />
 
     <Footer/>
-</main>
+</div>
 )
 }
 export default DetailProduct;
