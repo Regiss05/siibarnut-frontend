@@ -5,6 +5,7 @@ import Footer from "../../Components/global/footer";
 import {Container} from "reactstrap";
 import Discount from "../../Components/elements/discount/Discount";
 import Wrapper from "../../Components/elements/wrapper/Wrapper";
+import CategorieSection from "./elements/categorieSection";
 
 const Home=()=>{
     useEffect(()=>{
@@ -16,6 +17,7 @@ const Home=()=>{
                 <TopSection/>
             </Container>
                 <Discount/>
+            <CategorieSection/>
                 <Container>
                 <Products/>
             </Container>

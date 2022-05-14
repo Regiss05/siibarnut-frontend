@@ -16,19 +16,28 @@ const ProductsItem=({image,titre,prix,onClick,courte_desc,prix_solde})=>{
                     prix_solde > 0
                         ?
                     <div className="d-flex itemtop2 align-items-center justify-content-between px-2 ">
-                    <span className=" fw-bold">{prix}$ - {getDiscout(prix,prix_solde)} %</span>
+                    <span className=" fw-bold"> - {getDiscout(prix,prix_solde)} %</span>
                 </div>
                     :
-                    <div className="d-flex itemtop align-items-center justify-content-between px-2 ">
-                    <span className=" fw-bold">{prix}$</span>
-                </div>
+                null
                 }
                 <div className="text-center overflow-hidden imgcont ">
                     <img src={process.env.REACT_APP_BASE_URL+"/img/"+image} className="img-fluid"  alt="imageprod"/>
                 </div>
-                <div className="px-2">
-                    <span className="titreProd">{titre}</span><br/>
+                <div className="px-2 d-flex flex-column">
+                    <span className="titreProd">{titre}</span>
                     <span className="descProduct">{courte_desc.substring(0,80)}...</span>
+                    {
+                        prix_solde > 0
+                            ?
+                            <div className="d-flex  align-items-center justify-content-start gap-3 px-2 ">
+                                <span className="prixProd2">{prix} $</span>
+                                <span className="prixProd">{prix_solde} $</span>
+                            </div>
+                            :
+                            <span className="prixProd">{prix} $</span>
+                    }
+
                 </div>
             </div>
         </div>

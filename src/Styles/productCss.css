@@ -87,3 +87,12 @@
 .titreProd{
     font-weight: bold;
 }
+.prixProd{
+    font-weight: bold;
+    color: var(--color-site);
+}
+.prixProd2{
+    font-weight: bold;
+    color: #babcbf;
+    text-decoration: line-through;
+}
