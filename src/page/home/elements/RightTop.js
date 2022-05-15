@@ -1,19 +1,15 @@
 import React from 'react';
 import '../../../Styles/RightTop.css';
+import image1 from '../../../images/ulistartion/mm1.jpg';
+import image3 from '../../../images/ulistartion/mm3.jpg';
 
 function RightTop() {
     const data = [
         {
-            cover: "http://muda-backend.galafly.com/img/865523742fkmac1.jpeg",
-            title: "Ordinateur",
+            cover: image1,
         },
         {
-            cover: "http://muda-backend.galafly.com/img/1575168357fkii13.jpeg",
-            title: "Téléphone",
-        },
-        {
-            cover: "http://muda-backend.galafly.com/img/865523742fkmac1.jpeg",
-            title: "Téléphone",
+            cover: image3,
         },
     ]
   return (

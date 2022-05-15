@@ -5,6 +5,7 @@ import "../../Styles/datailProdCss.css"
 import {ArrowLeft} from "@material-ui/icons";
 import Discount from "../../Components/elements/discount/Discount";
 import {CardContext} from "../../context/cart";
+import {Heart, Share2} from "react-feather";
 
 const DetailProduct = () => {
     const location = useLocation();
@@ -49,10 +50,14 @@ const DetailProduct = () => {
                                     </div>
                                     <div className="col-md-6">
                                         <div className="product p-4">
-                                            <div className="d-flex justify-content-start align-items-start">
-                                                <button onClick={()=>history("/")} className="d-flex align-items-start align-items-center btn">
+                                            <div className="d-flex justify-content-between align-items-start">
+                                                <button onClick={()=>history("/")} className="d-flex  align-items-start align-items-center btn">
                                                     <ArrowLeft/>
                                                     <span className="ml-1">Back</span>
+                                                </button>
+                                                <button onClick={()=>history("/")} className="d-flex align-items-start align-items-center btn gap-2">
+                                                    <Share2/>
+                                                    <Heart/>
                                                 </button>
                                             </div>
                                             <div className="mt-4 mb-3"><span
@@ -79,14 +84,14 @@ const DetailProduct = () => {
                                                         null
                                                 }
                                             </div>
-                                            <div className="cart mt-4 align-items-center">
+                                            <div className="cart mt-4 align-items-center d-flex justify-content-between ">
                                                 <button className="btn btn-danger text-uppercase mr-2 px-4 " onClick={()=>{
                                                     addToCart(data)
                                                 }
                                                 }>Add to
                                                     cart
                                                 </button>
-                                                {/* <i className="fa fa-share-alt text-muted"/>*/}
+                                                <h6 className="">(Quantité en stock : {data.quantites})</h6>
                                             </div>
                                         </div>
                                     </div>

@@ -44,11 +44,18 @@ const Cart = () => {
                     product ko qty lai inc ra des garne
                     */}
                                         <div className='cartControl d_flex'>
-                                            <button className='incCart' onClick={() => addToCart(item)}>
-                                                <i className='fa-solid fa-plus'></i>
-                                            </button>
+                                            <h6 className="">(Quantité limit : {item.quantites})</h6>
+                                            {
+                                                parseInt(item.quantites) === parseInt(item.qty)
+                                                    ?
+                                                    null
+                                                    :
+                                                    <button className='incCart' onClick={() => addToCart(item)}>
+                                                        <i className='fa-solid fa-plus'/>
+                                                    </button>
+                                            }
                                             <button className='desCart' onClick={() => decreaseQty(item)}>
-                                                <i className='fa-solid fa-minus'></i>
+                                                <i className='fa-solid fa-minus'/>
                                             </button>
                                         </div>
                                     </div>
