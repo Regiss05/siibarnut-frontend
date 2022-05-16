@@ -7,7 +7,7 @@ const AuthProviderWrapper = ({children}) => {
     const [isLogin, setIsLogin] = useState(false);
     const [userData, setUserData] = useState(null);
     const [userToken, setUserToken] = useState(null);
-    const [isopenModalAut, setIsOpenModalAuth] = useState(true);
+    const [isopenModalAut, setIsOpenModalAuth] = useState(false);
     const [isLoaderUser, setIsLoaderUser] = useState(false);
     const logout=()=>{
         localStorage.removeItem("TokenUser")

@@ -28,27 +28,30 @@ const DetailProduct = () => {
                         <div className="col-12 col-xl-10 col-lg-10">
                             <div className="cards">
                                 <div className="row">
-                                    <div className="col-md-6">
-                                        <div className="images p-3">
-                                            <div className="text-center p-4">
-                                                <img id="main-image" src={process.env.REACT_APP_BASE_URL+"/img/"+image} className="img-fluid" alt="imhj"/>
-                                            </div>
-                                            {
-                                                data.images
-                                                    ?
-                                                <div className="thumbnail text-center row justify-content-center align-items-center cursor-pointe ">
+                                    <div className="col-md-6 ">
+                                        <div className="images px-2   row">
+
+
+                                                <div className="col-4 pt-2  thumbnail text-center row justify-content-center align-items-center cursor-pointe ">
+                                                    <div className="col-12 mb-1 thumbnailItem"  onClick={()=>setImage(image)}>
+                                                    <img  src={process.env.REACT_APP_BASE_URL+"/img/"+image}  className="img-fluid imagedetail" alt="imjh"/>
+                                                    </div>
                                                     {
-                                                        data.images.map((item,index)=><div className="col-4 thumbnailItem" key={index} onClick={()=>setImage(item.image)}>
+                                                        data.images
+                                                            ?
+                                                        data.images.map((item,index)=><div className="col-12 mb-1 thumbnailItem" key={index} onClick={()=>setImage(item.image)}>
                                                             <img  src={process.env.REACT_APP_BASE_URL+"/img/"+item.image}  className="img-fluid imagedetail" alt="imjh"/>
                                                         </div>)
+                                                            :
+                                                            null
                                                     }
                                             </div>
-                                                    :
-                                                    null
-                                            }
+                                            <div className="text-center p-4 col-8">
+                                                <img id="main-image" src={process.env.REACT_APP_BASE_URL+"/img/"+image} className="img-fluid" alt="imhj"/>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="col-md-6">
+                                    <div className="col-md-6 d-flex">
                                         <div className="product p-4">
                                             <div className="d-flex justify-content-between align-items-start">
                                                 <button onClick={()=>history("/")} className="d-flex  align-items-start align-items-center btn">
