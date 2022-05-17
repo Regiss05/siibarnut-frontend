@@ -86,3 +86,9 @@ label.radio input:checked+span {
 .btnDetail{
     font-size: 12px !important;
 }
+.slidI{
+    height: 430px !important;
+}
+.imgCont .img-fluidd{
+    height: 400px !important;
+}

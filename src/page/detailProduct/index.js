@@ -22,12 +22,13 @@ import {
     TelegramIcon,
     WhatsappIcon,
 } from "react-share";
+import Slider from "react-slick";
 const DetailProduct = () => {
     const location = useLocation();
     const data=location?.state;
     console.log("location", location)
     const history = useNavigate();
-    const [image,setImage]=useState(data?.img_princ);
+    const [image]=useState(data?.img_princ);
     const {addToCart,VerifIfIsExixte}=useContext(CardContext);
     useEffect(()=>{
         window.scrollTo(0, 0)
@@ -41,6 +42,64 @@ const DetailProduct = () => {
     const openModal=()=>{
         setIsOpenModal(true)
     }
+
+    const settings = {
+        dots: true,
+        dotsClass: "slick-dots",
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        swipeToSlide: true,
+        arrows: true,
+        className: "slidI",
+        autoplay: true,
+        customPaging: function () {
+
+            return (
+                <div style={{
+                    height: 10,
+                    width: 10,
+                    backgroundColor: "rgba(180,180,180,0.48)",
+                    marginTop: 10,
+                    borderRadius: 5
+                }}>
+                </div>
+            );
+        },
+        responsive: [
+            {
+                breakpoint: 24,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                    classNames: "col-12",
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1,
+                    classNames: "col-12",
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    classNames: "col-12",
+                }
+            }
+        ]
+
+    };
+
     const shareUrl = 'http://github.com';
     const title = 'GitHub'
     return (
@@ -143,24 +202,25 @@ const DetailProduct = () => {
                                     <div className="col-md-6 ">
                                         <div className="images px-2   row">
 
+                                            <div className=" imgCont p-4 col-12 " >
+                                            <Slider {...settings}>
+                                                    <img id="main-image" src={process.env.REACT_APP_BASE_URL+"/img/"+image} className="img-fluidd" alt="imhj"/>
 
-                                                <div className="col-4 pt-2  thumbnail text-center row justify-content-center align-items-center cursor-pointe ">
-                                                    <div className="col-12 mb-1 thumbnailItem"  onClick={()=>setImage(image)}>
-                                                    <img  src={process.env.REACT_APP_BASE_URL+"/img/"+image}  className="img-fluid imagedetail" alt="imjh"/>
-                                                    </div>
-                                                    {
-                                                        data.images
-                                                            ?
-                                                        data.images.map((item,index)=><div className="col-12 mb-1 thumbnailItem" key={index} onClick={()=>setImage(item.image)}>
-                                                            <img  src={process.env.REACT_APP_BASE_URL+"/img/"+item.image}  className="img-fluid imagedetail" alt="imjh"/>
-                                                        </div>)
-                                                            :
-                                                            null
-                                                    }
+
+                                                {
+                                                    data.images
+                                                        ?
+                                                        data.images.map((item,index)=>
+
+                                                                <img id="main-image" key={index} src={process.env.REACT_APP_BASE_URL+"/img/"+item.image} className="img-fluidd" alt="imhj"/>
+
+                                                        )
+                                                        :
+                                                        null
+                                                }
+                                            </Slider>
                                             </div>
-                                            <div className="text-center p-4 col-8">
-                                                <img id="main-image" src={process.env.REACT_APP_BASE_URL+"/img/"+image} className="img-fluid" alt="imhj"/>
-                                            </div>
+
                                         </div>
                                     </div>
                                     <div className="col-md-6 d-flex">
