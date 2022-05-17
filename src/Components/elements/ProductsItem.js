@@ -26,7 +26,7 @@ const ProductsItem=({image,titre,prix,onClick,courte_desc,prix_solde})=>{
                 </div>
                 <div className="px-2 d-flex flex-column">
                     <span className="titreProd">{titre}</span>
-                    <span className="descProduct">{courte_desc.substring(0,80)}...</span>
+                    <span className="descProduct">{courte_desc.substring(0,50)}...</span>
                     {
                         prix_solde > 0
                             ?
