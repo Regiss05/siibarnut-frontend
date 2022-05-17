@@ -1,8 +1,8 @@
 import React from 'react';
 import '../../../Styles/MiddleTop.css';
-import image1 from '../../../images/ulistartion/mm1.jpg';
-import image2 from '../../../images/ulistartion/mm2.jpg';
-import image3 from '../../../images/ulistartion/mm3.jpg';
+import image1 from '../../../images/ulistartion/md1.jpg';
+import image2 from '../../../images/ulistartion/md1.jpg';
+import image3 from '../../../images/ulistartion/md1.jpg';
 import Slider from "react-slick";
 function MiddleTop() {
   const settings = {
@@ -67,6 +67,15 @@ function MiddleTop() {
       <Slider {...settings}>
        <img src={image1} alt="imglg" className="imglg" />
        <img src={image2} alt="imglg" className="imglg"  />
+       <img src={image3} alt="imglg" className="imglg"  />
+       <img src={image3} alt="imglg" className="imglg"  />
+       <img src={image3} alt="imglg" className="imglg"  />
+       <img src={image3} alt="imglg" className="imglg"  />
+       <img src={image3} alt="imglg" className="imglg"  />
+       <img src={image3} alt="imglg" className="imglg"  />
+       <img src={image3} alt="imglg" className="imglg"  />
+       <img src={image3} alt="imglg" className="imglg"  />
+       <img src={image3} alt="imglg" className="imglg"  />
        <img src={image3} alt="imglg" className="imglg"  />
       </Slider>
     </div>
