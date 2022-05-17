@@ -1,7 +1,11 @@
-@media all and (max-width: 7590px) {
+@media all and (max-width: 759px) {
     .cardp {
         height: 250px;
 
+    }
+    .descProduct{
+        font-weight: lighter;
+        font-size: 9px;
     }
 }
 @media all and (min-width: 760px) and (max-width: 1000px) {
@@ -9,11 +13,19 @@
         height: 350px;
 
     }
+    .descProduct{
+        font-weight: lighter;
+        font-size: 14px;
+    }
 }
 @media all and (min-width: 1001px) {
     .cardp {
         height: 300px;
 
+    }
+    .descProduct{
+        font-weight: lighter;
+        font-size: 14px;
     }
 }
 .custom-badge {
@@ -61,10 +73,7 @@
     width: 100px;
     border-radius: 50px;
 }
-.descProduct{
-    font-weight: lighter;
-    font-size: 14px;
-}
+
 .itemtop{
     position: absolute;
     background-color: var(--color-site);
