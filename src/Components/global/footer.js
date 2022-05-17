@@ -1,5 +1,5 @@
 import React from "react";
-import {Phone,} from "react-feather";
+import {MessageCircle, Phone,} from "react-feather";
 import playstore from "../../images/ulistartion/android.svg"
 import appstore from "../../images/ulistartion/ios.svg"
 import {Email} from "@material-ui/icons";
@@ -98,6 +98,12 @@ import {Email} from "@material-ui/icons";
                      </div>
                  </div>
              </div>
+                 <a href="/" className="abv btnover1">
+                     <span >
+                         <MessageCircle size={30}/>
+                     </span>
+                 </a>
+
          </footer>
      )
  }
