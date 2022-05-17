@@ -268,7 +268,7 @@ const DetailProduct = () => {
                                                 </button>
                                                 </div>
                                                 {
-                                                    VerifIfIsExixte
+                                                    VerifIfIsExixte(data)
                                                         ?
                                                         <div className="col-12 col-xl-6 col-lg-6 mt-1">
                                                     <button

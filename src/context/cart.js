@@ -68,17 +68,14 @@ const CardProviderWrapper = ({children}) => {
         }
     }
 
-    const VerifIfIsExixte = async (product) => {
+    const VerifIfIsExixte =  (product) => {
         const productExit = CartItem.find((item) => item.id_produits === product.id_produits)
-
         if (productExit) {
-           return true
-        } else {
-           return false
+            return productExit
         }
     }
 
-    const VerifIfIsExixteFavori = async (product) => {
+    const VerifIfIsExixteFavori = (product) => {
         const productExit = favoriItem.find((item) => item.id_produits === product.id_produits)
 
         if (productExit) {
