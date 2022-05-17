@@ -8,26 +8,7 @@ import {Email} from "@material-ui/icons";
          <footer>
              <div className="container">
                  <div className="row">
-                     <div className="col-6 col-md-4  col-xl-4 col-lg-4 footer-column">
-                         <ul className="nav flex-column">
-                             <li className="nav-item  mb-3">
-                                 <span className="footer-title">Apropo de nous</span>
-                             </li>
-                             <li className="nav-item">
-                                 <a className="nav-link" href="/">Product 1</a>
-                             </li>
-                             <li className="nav-item">
-                                 <a className="nav-link" href="/">Product 2</a>
-                             </li>
-                             <li className="nav-item">
-                                 <a className="nav-link" href="/">Plans & Prices</a>
-                             </li>
-                             <li className="nav-item">
-                                 <a className="nav-link" href="/">Frequently asked questions</a>
-                             </li>
-                         </ul>
-                     </div>
-                     <div className="col-6 col-md-4  col-xl-4 col-lg-4 footer-column">
+                     <div className="col-5 col-md-6  col-xl-9 col-lg-9 footer-column">
                          <ul className="nav flex-column">
                              <li className="nav-item  mb-3">
                                  <span className="footer-title">Nos App</span>
@@ -44,16 +25,16 @@ import {Email} from "@material-ui/icons";
                              </li>
                          </ul>
                      </div>
-                     <div className="col-12 col-md-4  col-xl-4 col-lg-4 footer-column mt-5 mt-xl-0 mt-lg-0">
+                     <div className="col-7 col-md-4  col-xl-3 col-lg-3 footer-column ">
                          <ul className="nav flex-column d-flex col-12">
                              <li className="nav-item mb-3">
                                  <span className="footer-title">Contact & Support</span>
                              </li>
                              <li className="nav-item">
-                                 <span className="nav-link"><Phone className="icpneFooter"/>+243972673616</span>
+                                 <span className="nav-link"><Phone className="icpneFooter"/>+243991122903</span>
                              </li>
                              <li className="nav-item mt-1">
-                                 <a className="nav-link" href="/"><Email className="icpneFooter"/>Contact us</a>
+                                 <a className="nav-link" href="/"><Email className="icpneFooter"/>mudamarket01@gmail.com</a>
                              </li>
                          </ul>
                      </div>

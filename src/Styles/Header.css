@@ -72,6 +72,14 @@
   top: -10px;
   z-index: 70;
 }
+.header-top{
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  transition: all 0.2s;
+  top: -10px;
+  z-index: 70;
+}
 .search-cont-items{
   min-height: 200px;
   background-color: #fdfffd;

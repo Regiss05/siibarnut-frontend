@@ -141,7 +141,8 @@ function Header() {
   return (
       <React.Fragment>
         <AuthModal/>
-       <div className="headerTop">
+        <div className={isScroll ? "header-light" : ""}>
+       <div className="headerTop" >
           <div className="container align-items-center d-flex justify-content-between gap-2">
 
             <div className="col-12 pt-2 d-none d-xl-flex d-lg-flex align-items-center justify-content-xl-end gap-xl-5 justify-content-lg-end gap-lg-5 justify-content-between">
@@ -155,7 +156,7 @@ function Header() {
           </div>
 
         </div>
-    <div className={isScroll ? "header-light" : "header"}>
+    <div className={"header"}>
     <div className="headerContainer container col-12">
       <div className="logo col-2 col-lg-1 col-xl-1 ">
         <img className="logo "
@@ -247,6 +248,7 @@ function Header() {
       </div>
     </div>
     </div>
+        </div>
         </React.Fragment>
   )
 }

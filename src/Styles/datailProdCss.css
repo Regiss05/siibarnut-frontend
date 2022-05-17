@@ -83,3 +83,6 @@ label.radio input:checked+span {
 .imagedetail{
     height: 100px;
 }
+.btnDetail{
+    font-size: 12px !important;
+}

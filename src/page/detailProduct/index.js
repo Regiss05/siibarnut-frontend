@@ -5,19 +5,131 @@ import "../../Styles/datailProdCss.css"
 import {ArrowLeft} from "@material-ui/icons";
 import Discount from "../../Components/elements/discount/Discount";
 import {CardContext} from "../../context/cart";
-import {Heart, Share2} from "react-feather";
-
+import {Clipboard, Heart, Share2, ShoppingCart} from "react-feather";
+import {Container, Modal, ModalBody, ModalHeader} from "reactstrap";
+import {
+    FacebookShareCount,
+    FacebookShareButton,
+    FacebookMessengerShareButton,
+    FacebookMessengerIcon,
+    LinkedinShareButton,
+    TwitterShareButton,
+    TelegramShareButton,
+    WhatsappShareButton,
+    FacebookIcon,
+    TwitterIcon,
+    LinkedinIcon,
+    TelegramIcon,
+    WhatsappIcon,
+} from "react-share";
 const DetailProduct = () => {
     const location = useLocation();
     const data=location?.state;
     console.log("location", location)
     const history = useNavigate();
     const [image,setImage]=useState(data?.img_princ);
-    const {addToCart}=useContext(CardContext);
+    const {addToCart,VerifIfIsExixte}=useContext(CardContext);
     useEffect(()=>{
         window.scrollTo(0, 0)
     },[])
+    const [isopenModal, setIsOpenModal] = useState(false);
+
+
+    const closeModal=()=>{
+        setIsOpenModal(false)
+    }
+    const openModal=()=>{
+        setIsOpenModal(true)
+    }
+    const shareUrl = 'http://github.com';
+    const title = 'GitHub'
     return (
+        <React.Fragment>
+            <Modal isOpen={isopenModal} size="md" autoFocus={false}>
+                <ModalHeader toggle={closeModal} style={{borderBottom:"none"}}>
+                    Partager sur :
+                </ModalHeader>
+                <ModalBody className="bodyModal2" >
+                    <Container>
+                        <div className="Demo__some-network">
+                            <FacebookShareButton
+                                url={shareUrl}
+                                quote={title}
+                                className="Demo__some-network__share-button"
+                            >
+                                <FacebookIcon size={32} round />
+                            </FacebookShareButton>
+
+                            <div>
+                                <FacebookShareCount url={shareUrl} className="Demo__some-network__share-count">
+                                    {count => count}
+                                </FacebookShareCount>
+                            </div>
+                        </div>
+
+                        <div className="Demo__some-network">
+                            <FacebookMessengerShareButton
+                                url={shareUrl}
+                                appId="521270401588372"
+                                className="Demo__some-network__share-button"
+                            >
+                                <FacebookMessengerIcon size={32} round />
+                            </FacebookMessengerShareButton>
+                        </div>
+
+                        <div className="Demo__some-network">
+                            <TwitterShareButton
+                                url={shareUrl}
+                                title={title}
+                                className="Demo__some-network__share-button"
+                            >
+                                <TwitterIcon size={32} round />
+                            </TwitterShareButton>
+
+                            <div className="Demo__some-network__share-count">&nbsp;</div>
+                        </div>
+
+                        <div className="Demo__some-network">
+                            <TelegramShareButton
+                                url={shareUrl}
+                                title={title}
+                                className="Demo__some-network__share-button"
+                            >
+                                <TelegramIcon size={32} round />
+                            </TelegramShareButton>
+
+                            <div className="Demo__some-network__share-count">&nbsp;</div>
+                        </div>
+
+                        <div className="Demo__some-network">
+                            <WhatsappShareButton
+                                url={shareUrl}
+                                title={title}
+                                separator=":: "
+                                className="Demo__some-network__share-button"
+                            >
+                                <WhatsappIcon size={32} round />
+                            </WhatsappShareButton>
+
+                            <div className="Demo__some-network__share-count">&nbsp;</div>
+                        </div>
+
+                        <div className="Demo__some-network">
+                            <LinkedinShareButton url={shareUrl} className="Demo__some-network__share-button">
+                                <LinkedinIcon size={32} round />
+                            </LinkedinShareButton>
+                        </div>
+
+                        <div className="Demo__some-network">
+                            <button  className="btn-partage ">
+                                <Clipboard size={17} round />
+                            </button>
+                        </div>
+
+                    </Container>
+
+                </ModalBody>
+            </Modal>
         <div className="">
             <div className="conteiant-site">
                 {
@@ -58,7 +170,7 @@ const DetailProduct = () => {
                                                     <ArrowLeft/>
                                                     <span className="ml-1">Back</span>
                                                 </button>
-                                                <button onClick={()=>history("/")} className="d-flex align-items-start align-items-center btn gap-2">
+                                                <button onClick={openModal} className="d-flex align-items-start align-items-center btn gap-2">
                                                     <Share2/>
                                                     <Heart/>
                                                 </button>
@@ -87,14 +199,26 @@ const DetailProduct = () => {
                                                         null
                                                 }
                                             </div>
-                                            <div className="cart mt-4 align-items-center d-flex justify-content-between ">
-                                                <button className="btn btn-danger text-uppercase mr-2 px-4 " onClick={()=>{
+                                            <div className="cart mt-4 align-items-center row d-flex justify-content-between ">
+                                                <div className="col-12 col-xl-6 col-lg-6 mt-1">
+                                                <button className="btn btn-danger btnDetail text-uppercase mr-2 px-4 col-12  " onClick={()=>{
                                                     addToCart(data)
                                                 }
-                                                }>Add to
-                                                    cart
+                                                }>Ajouter Au panier
                                                 </button>
-                                                <h6 className="">(Quantité en stock : {data.quantites})</h6>
+                                                </div>
+                                                {
+                                                    VerifIfIsExixte
+                                                        ?
+                                                        <div className="col-12 col-xl-6 col-lg-6 mt-1">
+                                                    <button
+                                                    className="btn btn-primary btnDetail  text-uppercase mr-2 px-4 col-12   ">
+                                                    Payermaintenat
+                                                </button>
+                                                        </div>
+                                                        :
+                                                        null
+                                                }
                                             </div>
                                         </div>
                                     </div>
@@ -108,9 +232,19 @@ const DetailProduct = () => {
                 }
         </div>
             <Discount />
-
+            <a href="/" className="abv btnover2" onClick={e=>{
+                e.preventDefault()
+                addToCart(data)
+            }
+            }>
+                     <span >
+                         <ShoppingCart size={20}/>
+                         Ajouter au panier
+                     </span>
+            </a>
     <Footer/>
 </div>
+        </React.Fragment>
 )
 }
 export default DetailProduct;

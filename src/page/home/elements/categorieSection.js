@@ -2,10 +2,12 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {toast} from "react-toastify";
 import ProductLoader from "../../../Components/elements/productLoader";
+import {useNavigate} from "react-router-dom";
 
 const CategorieSection=({setcategorie})=>{
     const [data,setData]=useState(null)
     const [isLog, setislog] = useState(false);
+    const history = useNavigate();
 
     const getcategorie=()=>{
         setislog(true)
@@ -74,7 +76,7 @@ const CategorieSection=({setcategorie})=>{
                              ?
                              data.map((item, index) => <div className="col-6 col-xl-2 col-lg-2" key={index}>
                                  <div className='box productDs' onClick={() => {
-                                     setcategorie(item.id_cat)
+                                     history( "/produits", {state: item})
                                  }}>
                                      <div className='img'>
                                          <img src={process.env.REACT_APP_BASE_URL + "/img/" + item.img} alt=''

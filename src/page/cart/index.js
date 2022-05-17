@@ -40,11 +40,7 @@ const Cart = () => {
                                                 <i className='fa-solid fa-xmark'></i>
                                             </button>
                                         </div>
-                                        {/* stpe: 5
-                    product ko qty lai inc ra des garne
-                    */}
                                         <div className='cartControl d_flex'>
-                                            <h6 className="">(Quantité limit : {item.quantites})</h6>
                                             {
                                                 parseInt(item.quantites) === parseInt(item.qty)
                                                     ?
