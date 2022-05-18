@@ -33,6 +33,14 @@ const Siteroutes = [
         component: lazy(() => import('../../page/cart/')),
         exact: true
     },
+    {
+        path:"/checkout",
+        ind:{
+            index:false,
+        },
+        component: lazy(() => import('../../page/checkout/')),
+        exact: true
+    },
 
 ]
 

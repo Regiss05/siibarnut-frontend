@@ -1,11 +1,13 @@
 import React, {useContext} from "react"
 import "../../Styles/card.css"
 import {CardContext} from "../../context/cart";
+import {useNavigate} from "react-router-dom";
 
 const Cart = () => {
     // Stpe: 7   calucate total of items
     const {addToCart,decreaseQty,CartItem,deleteProduct}=useContext(CardContext);
     const totalPrice = CartItem.reduce((price, item) => price + item.qty * item.Prix_unitaire, 0)
+    const history = useNavigate();
 
     // prodcut qty total
     return (
@@ -69,6 +71,13 @@ const Cart = () => {
                               <h4>Total Price :</h4>
                               <h3>${totalPrice}.00</h3>
                           </div>
+                          <button
+                              className="btn btn-primary btnDetail
+                                                     text-uppercase mr-2 px-4 col-12 "
+                              onClick={()=>history("/checkout")}
+                          >
+                              Payermaintenat
+                          </button>
                       </div>
                   </div>
                     </div>

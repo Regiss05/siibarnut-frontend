@@ -79,9 +79,7 @@ const CardProviderWrapper = ({children}) => {
         const productExit = favoriItem.find((item) => item.id_produits === product.id_produits)
 
         if (productExit) {
-           return true
-        } else {
-           return false
+            return productExit
         }
     }
 

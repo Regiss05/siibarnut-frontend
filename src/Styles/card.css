@@ -10,7 +10,7 @@
 
 .cart-items .cart-total {
     margin-top: 30px;
-    height: 130px;
+    height: auto;
 }
 .cart-list {
     background: white;
@@ -148,4 +148,8 @@
     opacity: 1;
 }
 .cart-details{
+}
+.img-cd{
+    width: 50px;
+    height: 50px;
 }

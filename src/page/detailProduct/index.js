@@ -29,7 +29,7 @@ const DetailProduct = () => {
     console.log("location", location)
     const history = useNavigate();
     const [image]=useState(data?.img_princ);
-    const {addToCart,VerifIfIsExixte}=useContext(CardContext);
+    const {addToCart,VerifIfIsExixte,ToggleFavorit}=useContext(CardContext);
     useEffect(()=>{
         window.scrollTo(0, 0)
     },[])
@@ -225,15 +225,19 @@ const DetailProduct = () => {
                                     </div>
                                     <div className="col-md-6 d-flex">
                                         <div className="product p-4">
-                                            <div className="d-flex justify-content-between align-items-start">
+                                            <div className="d-flex justify-content-between align-items-start ">
                                                 <button onClick={()=>history("/")} className="d-flex  align-items-start align-items-center btn">
                                                     <ArrowLeft/>
                                                     <span className="ml-1">Back</span>
                                                 </button>
-                                                <button onClick={openModal} className="d-flex align-items-start align-items-center btn gap-2">
+                                                <div className="d-flex align-items-start align-items-center ">
+                                                <button onClick={openModal} className="d-flex align-items-start align-items-center btn gap-4">
                                                     <Share2/>
+                                                </button>
+                                                <button onClick={()=>ToggleFavorit(data)} className="d-flex align-items-start align-items-center btn gap-2">
                                                     <Heart/>
                                                 </button>
+                                                </div>
                                             </div>
                                             <div className="mt-4 mb-3"><span
                                                 className="text-uppercase text-muted3 brand fw-bold">{data.categorie?.designation}</span>
@@ -272,7 +276,10 @@ const DetailProduct = () => {
                                                         ?
                                                         <div className="col-12 col-xl-6 col-lg-6 mt-1">
                                                     <button
-                                                    className="btn btn-primary btnDetail  text-uppercase mr-2 px-4 col-12   ">
+                                                    className="btn btn-primary btnDetail
+                                                     text-uppercase mr-2 px-4 col-12 "
+                                                    onClick={()=>history("/checkout")}
+                                                    >
                                                     Payermaintenat
                                                 </button>
                                                         </div>
