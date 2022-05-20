@@ -1,5 +1,5 @@
 :root{
-    --color-site:#1888cd;
+    --color-site:#C80D00;
 }
 body{
     background-color: #fff;
@@ -569,7 +569,7 @@ footer .quick-links {
 .mtSect{
     display: flex;
     flex-direction: column;
-    background-color: rgba(11, 48, 173, 0.62);
+    background-color: rgba(173, 11, 35, 0.62);
     padding: 10px;
     border-radius: 20px;
 }

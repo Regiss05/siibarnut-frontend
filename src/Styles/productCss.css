@@ -83,7 +83,7 @@
 }
 .itemtop2{
     position: absolute;
-    background-color: #ca0a0a;
+    background-color: rgba(202, 10, 10, 0.7);
     color: #ffffff;
     border-top-left-radius: 10px;
     padding: 5px 20px ;
