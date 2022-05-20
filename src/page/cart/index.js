@@ -34,6 +34,7 @@ const Cart = () => {
                                         <h4>
                                             ${item.Prix_unitaire}.00 * {item.qty}
                                             <span>${productQty}.00</span>
+                                            <span>(Quantité disponible {parseInt(item.quantites)})</span>
                                         </h4>
                                     </div>
                                     <div className='cart-items-function'>

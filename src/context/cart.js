@@ -1,4 +1,5 @@
 import React, {useState, createContext, useEffect} from "react";
+import {toast} from "react-toastify";
 const Context=createContext();
 
 const CardProviderWrapper = ({children}) => {
@@ -29,19 +30,45 @@ const CardProviderWrapper = ({children}) => {
     const addToCart =async (product) => {
         const productExit = CartItem.find((item) => item.id_produits === product.id_produits)
         if (productExit) {
-            if (parseInt(product.quantites) === parseInt(product.qty)){
-
+            if (parseInt(product.quantites) === parseInt(productExit.qty)){
+                toast.warning("Le produit est déjà sur la limite du stock", {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             }else {
                 await setCartItem(CartItem.map((item) => (item.id_produits === product.id_produits ? {
                     ...productExit,
                     qty: productExit.qty + 1
                 } : item)))
                 await localStorage.setItem("CartItem", JSON.stringify(CartItem))
+                toast.success("Produt ajouter au panier", {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             }
 
         } else {
            await setCartItem([...CartItem, { ...product, qty: 1 }])
            await localStorage.setItem("CartItem",JSON.stringify(CartItem))
+            toast.success("Produt ajouter au panier", {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     }
     const ToggleFavorit =async (product) => {
@@ -49,10 +76,28 @@ const CardProviderWrapper = ({children}) => {
         if (productExit) {
             await setfavoriItem(favoriItem.filter((item) => item.id_produits !== product.id_produits))
                 await localStorage.setItem("favoriItem", JSON.stringify(favoriItem))
+            toast.error("Produit supprimer au favori", {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
 
         } else {
            await setfavoriItem([...favoriItem, { ...product }])
            await localStorage.setItem("favoriItem",JSON.stringify(favoriItem))
+            toast.success("Produit ajouter au favori", {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     }
 
@@ -62,9 +107,27 @@ const CardProviderWrapper = ({children}) => {
         if (productExit.qty === 1) {
             await setCartItem(CartItem.filter((item) => item.id_produits !== product.id_produits))
             await localStorage.setItem("CartItem",JSON.stringify(CartItem))
+            toast.error("Produit supprimer au panier", {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         } else {
             await setCartItem(CartItem.map((item) => (item.id_produits === product.id_produits ? { ...productExit, qty: productExit.qty - 1 } : item)))
             await localStorage.setItem("CartItem",JSON.stringify(CartItem))
+            toast.warning("Produt diminuer au panier", {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     }
 
@@ -89,6 +152,15 @@ const CardProviderWrapper = ({children}) => {
         if (productExit) {
            await setCartItem(CartItem.filter((item) => item.id_produits !== product.id_produits))
             await localStorage.setItem("CartItem",JSON.stringify(CartItem))
+            toast.error("Produit supprimer au panier", {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     }
 
