@@ -91,7 +91,7 @@ const Checkout = ()=>{
                                                     <div className='cart-details'>
 
                                                         <h6>
-                                                            ${item.Prix_unitaire}.00 * {item.qty}
+                                                            ${item.Prix_unitaire}.00 * {item.qty}{" "}
                                                             <span>${productQty}.00</span>
                                                         </h6>
                                                     </div>

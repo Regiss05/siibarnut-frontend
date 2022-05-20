@@ -71,13 +71,13 @@ const Cart = () => {
                               <h4>Total Price :</h4>
                               <h3>${totalPrice}.00</h3>
                           </div>
-                          <button
+                          {CartItem.length > 0 &&<button
                               className="btn btn-primary btnDetail
                                                      text-uppercase mr-2 px-4 col-12 "
-                              onClick={()=>history("/checkout")}
+                              onClick={() => history("/checkout")}
                           >
                               Payermaintenat
-                          </button>
+                          </button>}
                       </div>
                   </div>
                     </div>
