@@ -188,7 +188,7 @@ footer .quick-links {
 }
 .background {
     background: #f6f9fc;
-    padding: 50px 0;
+    padding: 10px 0 50px 0;
 }
 .productC {
     background: #fff;
@@ -488,7 +488,7 @@ footer .quick-links {
 }
 @media all and (max-width: 759px) {
     .productDs {
-        height: 50px;
+        height: 100px;
         padding: 0px 20px 10px 20px;
         cursor: pointer;
 
