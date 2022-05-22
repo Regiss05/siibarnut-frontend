@@ -70,13 +70,6 @@ function MiddleTop() {
        <img src={image3} alt="imglg" className="imglg"  />
        <img src={image3} alt="imglg" className="imglg"  />
        <img src={image3} alt="imglg" className="imglg"  />
-       <img src={image3} alt="imglg" className="imglg"  />
-       <img src={image3} alt="imglg" className="imglg"  />
-       <img src={image3} alt="imglg" className="imglg"  />
-       <img src={image3} alt="imglg" className="imglg"  />
-       <img src={image3} alt="imglg" className="imglg"  />
-       <img src={image3} alt="imglg" className="imglg"  />
-       <img src={image3} alt="imglg" className="imglg"  />
       </Slider>
     </div>
   )

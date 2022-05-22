@@ -96,7 +96,7 @@ const ProductsSections = ({categorie}) => {
         [categorie]
     )
     return (
-        <div className="container mt-5 mb-5">
+        <div className="container mt-1 mb-5">
             <div className="d-flex justify-content-between align-items-center mb-3"><span>Nos Produits</span>
             </div>
             {

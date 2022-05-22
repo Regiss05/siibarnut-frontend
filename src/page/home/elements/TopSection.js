@@ -5,8 +5,8 @@ import RightTop from "./RightTop";
 
 function TopSection() {
   return (
-    <div className="container p-2  ">
-        <div className="row mt-4">
+    <div className="container p-1 pt-0  ">
+        <div className="row ">
       <MiddleTop />
             <RightTop/>
         </div>

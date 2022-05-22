@@ -10,7 +10,7 @@ const ProductsItem=({image,titre,prix,onClick,courte_desc,prix_solde})=>{
         }
     }*/
     return(
-        <div className="col-xl-3 col-lg-3 col-6  mt-4 " onClick={onClick}>
+        <div className="col-xl-3 col-lg-3 col-6  mt-1 " onClick={onClick}>
             <div className="cardp">
                 {
                     prix_solde > 0

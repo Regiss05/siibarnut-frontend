@@ -74,7 +74,7 @@ const CategorieSection=({setcategorie})=>{
                              :
                          data
                              ?
-                             data.map((item, index) => <div className="col-6 col-xl-2 col-lg-2" key={index}>
+                             data.map((item, index) => <div className="col-3 col-xl-1 col-lg-1" key={index}>
                                  <div className='box productDs' onClick={() => {
                                      history( "/produits", {state: item})
                                  }}>

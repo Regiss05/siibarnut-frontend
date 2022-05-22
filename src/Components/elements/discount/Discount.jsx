@@ -80,6 +80,9 @@ const Discount = () => {
 
           }
         </div>
+        <div style={{
+          marginBottom:20,
+        }}/>
       </section>
     </>
   )

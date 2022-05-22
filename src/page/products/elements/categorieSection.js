@@ -62,33 +62,33 @@ const CategorieSection=({setcategorie})=>{
                             <h5>Categories</h5>
                         </div>
                     </div>
-                 <div className="col-12 row">
-                     {
-                         isLog
-                             ?
-                             <div className="row">
-                                 <ProductLoader/>
-                             </div>
-                             :
-                         data
-                             ?
-                             data.map((item, index) => <div className="col-6 col-xl-2 col-lg-2" key={index}>
-                                 <div className='box productDs' onClick={() => {
-                                     setcategorie(item.id_cat)
-                                 }}>
-                                     <div className='img'>
-                                         <img src={process.env.REACT_APP_BASE_URL + "/img/" + item.img} alt=''
-                                              width='100%'/>
-                                     </div>
-                                     <div>
-                                         <h4>{item.designation}</h4>
-                                     </div>
-                                 </div>
-                             </div>)
-                             :
-                             null}
+                    <div className="col-12 row">
+                        {
+                            isLog
+                                ?
+                                <div className="row">
+                                    <ProductLoader/>
+                                </div>
+                                :
+                                data
+                                    ?
+                                    data.map((item, index) => <div className="col-3 col-xl-1 col-lg-1" key={index}>
+                                        <div className='box productDs' onClick={() => {
+                                            setcategorie(item.id_cat)
+                                        }}>
+                                            <div className='img'>
+                                                <img src={process.env.REACT_APP_BASE_URL + "/img/" + item.img} alt=''
+                                                     width='100%'/>
+                                            </div>
+                                            <div>
+                                                <h4>{item.designation}</h4>
+                                            </div>
+                                        </div>
+                                    </div>)
+                                    :
+                                    null}
 
-                 </div>
+                    </div>
                 </div>
             </section>
         </>

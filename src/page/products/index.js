@@ -24,13 +24,15 @@ const Products=()=>{
         [])
     return(
        <div>
-           <Discount/>
+
            <CategorieSection setcategorie={(value)=> {
                setCategorie(value)
            }}/>
+
            <Container>
                <ProductsSections categorie={categorie}/>
            </Container>
+           <Discount/>
            <Footer/>
        </div>
     )

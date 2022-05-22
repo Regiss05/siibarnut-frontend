@@ -188,7 +188,7 @@ footer .quick-links {
 }
 .background {
     background: #f6f9fc;
-    padding: 10px 0 50px 0;
+    padding: 5px 0 1px 0;
 }
 .productC {
     background: #fff;
@@ -480,19 +480,22 @@ footer .quick-links {
     position: relative;
     border-radius: 8px;
     box-shadow: rgb(3 0 71 / 9%) 0px 1px 3px;
-    margin: 10px;
+    margin: 5px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 @media all and (max-width: 759px) {
     .productDs {
-        height: 100px;
+        height: 50px;
         padding: 0px 20px 10px 20px;
         cursor: pointer;
 
     }
+}
+.heading-left h5{
+    font-size: 12px !important;
 }
 @media all and (min-width: 760px) and (max-width: 1000px) {
     .productDs {
@@ -504,7 +507,7 @@ footer .quick-links {
 }
 @media all and (min-width: 1001px) {
     .productDs {
-        padding: 10px 20px 10px 10px;
+        padding: 20px 20px ;
         height: 80px;
         cursor: pointer;
 
