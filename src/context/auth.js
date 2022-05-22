@@ -7,7 +7,7 @@ const AuthProviderWrapper = ({children}) => {
     const [isLogin, setIsLogin] = useState(false);
     const [userData, setUserData] = useState(null);
     const [userToken, setUserToken] = useState(null);
-    const [isopenModalAut, setIsOpenModalAuth] = useState(false);
+    const [isopenModalAut, setIsOpenModalAuth] = useState(true);
     const [isLoaderUser, setIsLoaderUser] = useState(false);
     const logout=()=>{
         localStorage.removeItem("TokenUser")
@@ -47,7 +47,7 @@ const AuthProviderWrapper = ({children}) => {
                         setIsLogin(true)
                         toast.success(response?.data?.message, {
                             position: "top-right",
-                            autoClose: 5000,
+                            autoClose: 1000,
                             hideProgressBar: false,
                             closeOnClick: true,
                             pauseOnHover: true,
@@ -58,7 +58,7 @@ const AuthProviderWrapper = ({children}) => {
                     }else {
                         toast.error(response?.data?.message, {
                             position: "top-right",
-                            autoClose: 5000,
+                            autoClose: 1000,
                             hideProgressBar: false,
                             closeOnClick: true,
                             pauseOnHover: true,
@@ -73,7 +73,7 @@ const AuthProviderWrapper = ({children}) => {
                     console.log(err.response.data);
                     toast.error('Problème de connexion', {
                         position: "top-right",
-                        autoClose: 5000,
+                        autoClose: 1000,
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: true,
@@ -84,7 +84,7 @@ const AuthProviderWrapper = ({children}) => {
         }else {
             toast.error('Remplisez tout le champs', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 1000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -128,7 +128,7 @@ const AuthProviderWrapper = ({children}) => {
                         setIsLogin(true)
                         toast.success(response?.data?.message, {
                             position: "top-right",
-                            autoClose: 5000,
+                            autoClose: 1000,
                             hideProgressBar: false,
                             closeOnClick: true,
                             pauseOnHover: true,
@@ -139,7 +139,7 @@ const AuthProviderWrapper = ({children}) => {
                     }else {
                         toast.error(response?.data?.message, {
                             position: "top-right",
-                            autoClose: 5000,
+                            autoClose: 1000,
                             hideProgressBar: false,
                             closeOnClick: true,
                             pauseOnHover: true,
@@ -154,7 +154,7 @@ const AuthProviderWrapper = ({children}) => {
                     console.log(err.response.data);
                     toast.error('Problème de connexion', {
                         position: "top-right",
-                        autoClose: 5000,
+                        autoClose: 1000,
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: true,
@@ -165,7 +165,7 @@ const AuthProviderWrapper = ({children}) => {
         }else {
             toast.error('Remplisez tout le champs', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 1000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
