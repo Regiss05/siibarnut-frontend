@@ -12,11 +12,11 @@ const Home=()=>{
     },[])
     return(
         <div >
-            <Discount/>
+            <CategorieSection/>
             <Container>
                 <TopSection/>
             </Container>
-            <CategorieSection/>
+            <Discount/>
                 <Container>
                 <Products/>
             </Container>
