@@ -33,44 +33,44 @@ const CardProviderWrapper = ({children}) => {
     },
         // eslint-disable-next-line
         [favoriItem])
-    const addToCart =async (product) => {
+    const addToCart = (product) => {
         const productExit = CartItem.find((item) => item.id_produits === product.id_produits)
         if (productExit) {
             if (parseInt(product.quantites) === parseInt(productExit.qty)){
             }else {
-                await setCartItem(CartItem.map((item) => (item.id_produits === product.id_produits ? {
+                 setCartItem(CartItem.map((item) => (item.id_produits === product.id_produits ? {
                     ...productExit,
                     qty: productExit.qty + 1
                 } : item)))
-                await localStorage.setItem("CartItem", JSON.stringify(CartItem))
+                 localStorage.setItem("CartItem", JSON.stringify(CartItem))
             }
 
         } else {
-           await setCartItem([...CartItem, { ...product, qty: 1 }])
-           await localStorage.setItem("CartItem",JSON.stringify(CartItem))
+            setCartItem([...CartItem, { ...product, qty: 1 }])
+            localStorage.setItem("CartItem",JSON.stringify(CartItem))
         }
     }
-    const ToggleFavorit =async (product) => {
+    const ToggleFavorit = (product) => {
         const productExit = favoriItem.find((item) => item.id_produits === product.id_produits)
         if (productExit) {
-            await setfavoriItem(favoriItem.filter((item) => item.id_produits !== product.id_produits))
-                await localStorage.setItem("favoriItem", JSON.stringify(favoriItem))
+             setfavoriItem(favoriItem.filter((item) => item.id_produits !== product.id_produits))
+                 localStorage.setItem("favoriItem", JSON.stringify(favoriItem))
 
         } else {
-           await setfavoriItem([...favoriItem, { ...product }])
-           await localStorage.setItem("favoriItem",JSON.stringify(favoriItem))
+            setfavoriItem([...favoriItem, { ...product }])
+            localStorage.setItem("favoriItem",JSON.stringify(favoriItem))
         }
     }
 
-    const decreaseQty = async (product) => {
+    const decreaseQty =  (product) => {
         const productExit = CartItem.find((item) => item.id_produits === product.id_produits)
 
         if (productExit.qty === 1) {
-            await setCartItem(CartItem.filter((item) => item.id_produits !== product.id_produits))
-            await localStorage.setItem("CartItem",JSON.stringify(CartItem))
+             setCartItem(CartItem.filter((item) => item.id_produits !== product.id_produits))
+             localStorage.setItem("CartItem",JSON.stringify(CartItem))
         } else {
-            await setCartItem(CartItem.map((item) => (item.id_produits === product.id_produits ? { ...productExit, qty: productExit.qty - 1 } : item)))
-            await localStorage.setItem("CartItem",JSON.stringify(CartItem))
+             setCartItem(CartItem.map((item) => (item.id_produits === product.id_produits ? { ...productExit, qty: productExit.qty - 1 } : item)))
+             localStorage.setItem("CartItem",JSON.stringify(CartItem))
         }
     }
 
@@ -89,12 +89,12 @@ const CardProviderWrapper = ({children}) => {
         }
     }
 
-    const deleteProduct = async (product) => {
+    const deleteProduct =  (product) => {
         const productExit = CartItem.find((item) => item.id_produits === product.id_produits)
 
         if (productExit) {
-           await setCartItem(CartItem.filter((item) => item.id_produits !== product.id_produits))
-            await localStorage.setItem("CartItem",JSON.stringify(CartItem))
+            setCartItem(CartItem.filter((item) => item.id_produits !== product.id_produits))
+             localStorage.setItem("CartItem",JSON.stringify(CartItem))
         }
     }
 
