@@ -1,9 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import '../../../Styles/MiddleTop.css';
-import image1 from '../../../images/ulistartion/md1.jpg';
-import image2 from '../../../images/ulistartion/md1.jpg';
-import image3 from '../../../images/ulistartion/md1.jpg';
 import Slider from "react-slick";
+import axios from "axios";
 function MiddleTop() {
   const settings = {
     dots: true,
@@ -61,15 +59,65 @@ function MiddleTop() {
     ]
 
   };
+    const [produits,setProducts]=useState(null)
+    // eslint-disable-next-line
+    const [isLog, setislog] = useState(false);
+
+    const getPub=()=>{
+        setislog(true)
+        console.log("get")
+        const options = {
+            url: process.env.REACT_APP_BASE_URL + "/pub" ,
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8',
+            }
+        };
+        axios(options)
+            .then(response => {
+                setislog(false)
+                if (response.data.status===200){
+                    console.log(response.data)
+                    setProducts(response.data?.data);
+                }else {
+
+                    setProducts(null)
+                }
+            })
+            .catch(err => {
+                setislog(false)
+                console.log(err.response);
+                if (err.response){
+                    if (err.response.data.status===404){
+                        console.log(err.response.data)
+                        setProducts(null)
+
+                    }else {
+
+                    }
+                }else {
+
+                }
+            });
+    }
+    useEffect(()=>{
+            // eslint-disable-next-line
+            getPub();
+        }, // eslint-disable-next-line
+        [])
 
   return (
     <div className="middleTopContainer col-12 col-xl-9 col-lg-9 ">
       <Slider {...settings}>
-       <img src={image1} alt="imglg" className="imglg" />
-       <img src={image2} alt="imglg" className="imglg"  />
-       <img src={image3} alt="imglg" className="imglg"  />
-       <img src={image3} alt="imglg" className="imglg"  />
-       <img src={image3} alt="imglg" className="imglg"  />
+          {
+              produits
+                  ?
+                  produits.map((item,index)=><img src={item.image} alt="imglg" className="imglg" key={index}/>)
+
+                  :
+                  null
+          }
       </Slider>
     </div>
   )
