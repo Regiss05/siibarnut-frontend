@@ -28,11 +28,10 @@ const Products=()=>{
            <CategorieSection setcategorie={(value)=> {
                setCategorie(value)
            }}/>
-
+           <Discount/>
            <Container>
                <ProductsSections categorie={categorie}/>
            </Container>
-           <Discount/>
            <Footer/>
        </div>
     )

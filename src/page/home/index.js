@@ -16,10 +16,10 @@ const Home=()=>{
             <Container>
                 <TopSection/>
             </Container>
+            <Discount/>
                 <Container>
                 <Products/>
             </Container>
-            <Discount/>
             <Footer/>
         </div>
     )
