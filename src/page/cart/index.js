@@ -3,6 +3,7 @@ import "../../Styles/card.css"
 import {CardContext} from "../../context/cart";
 import {useNavigate} from "react-router-dom";
 import {Container} from "reactstrap";
+import Footer from "../../Components/global/footer";
 
 const Cart = () => {
     // Stpe: 7   calucate total of items
@@ -12,6 +13,7 @@ const Cart = () => {
 
     // prodcut qty total
     return (
+        <>
         <Container>
             <section className='cart-items'>
                 <div className='container  '>
@@ -97,6 +99,8 @@ const Cart = () => {
                 </div>
             </section>
         </Container>
+    <Footer/>
+    </>
     )
 }
 
