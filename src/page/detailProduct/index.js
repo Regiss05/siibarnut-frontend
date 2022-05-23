@@ -29,7 +29,7 @@ const DetailProduct = () => {
     console.log("location", location)
     const history = useNavigate();
     const [image]=useState(data?.img_princ);
-    const {addToCart,VerifIfIsExixte,ToggleFavorit}=useContext(CardContext);
+    const {addToCart,VerifIfIsExixte,ToggleFavorit,VerifIfIsExixteFavori}=useContext(CardContext);
     useEffect(()=>{
         window.scrollTo(0, 0)
     },[])
@@ -235,7 +235,7 @@ const DetailProduct = () => {
                                                     <Share2/>
                                                 </button>
                                                 <button onClick={()=>ToggleFavorit(data)} className="d-flex align-items-start align-items-center btn gap-2">
-                                                    <Heart/>
+                                                    <Heart color={VerifIfIsExixteFavori(data)?"#f00":"#000"}/>
                                                 </button>
                                                 </div>
                                             </div>

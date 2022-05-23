@@ -2,6 +2,7 @@ import React, {useContext} from "react"
 import "../../Styles/card.css"
 import {CardContext} from "../../context/cart";
 import {useNavigate} from "react-router-dom";
+import {Container} from "reactstrap";
 
 const Cart = () => {
     // Stpe: 7   calucate total of items
@@ -11,7 +12,7 @@ const Cart = () => {
 
     // prodcut qty total
     return (
-        <>
+        <Container>
             <section className='cart-items'>
                 <div className='container  '>
                     <div className="row">
@@ -25,41 +26,52 @@ const Cart = () => {
                             const productQty = item.Prix_unitaire * item.qty
 
                             return (
-                                <div className='cart-list col-12 productdd d_flex' key={item.id_produits}>
-                                    <div className='img '>
-                                        <img src={process.env.REACT_APP_BASE_URL+"/img/"+item.img_princ} alt='' />
-                                    </div>
-                                    <div className='cart-details'>
-                                        <h3>{item.designation}</h3>
-                                        <h4>
-                                            ${item.Prix_unitaire}.00 * {item.qty}
-                                            <span>${productQty}.00</span>
-                                            <span>(Quantité disponible {parseInt(item.quantites)})</span>
-                                        </h4>
-                                    </div>
-                                    <div className='cart-items-function'>
-                                        <div className='removeCart'>
-                                            <button className=' btn btn-danger' onClick={() => deleteProduct(item)}>
-                                                <i className='fa-solid fa-xmark'></i>
-                                            </button>
+                                <div className='cart-list col-12 productdd row' key={item.id_produits}>
+
+                                    <div className="d-flex justify-content-between col-12">
+                                        <div className='img d-flex flex-column  '>
+                                            <img src={process.env.REACT_APP_BASE_URL+"/img/"+item.img_princ} alt='' />
                                         </div>
-                                        <div className='cartControl d_flex'>
-                                            {
-                                                parseInt(item.quantites) === parseInt(item.qty)
-                                                    ?
-                                                    null
-                                                    :
-                                                    <button className='incCart' onClick={() => addToCart(item)}>
-                                                        <i className='fa-solid fa-plus'/>
-                                                    </button>
-                                            }
-                                            <button className='desCart' onClick={() => decreaseQty(item)}>
-                                                <i className='fa-solid fa-minus'/>
-                                            </button>
+                                        <div className="d-flex flex-column col-9">
+                                            <div className='removeCart'>
+                                                <button className=' btn btn-danger' onClick={() => deleteProduct(item)}>
+                                                    <i className='fa-solid fa-xmark'></i>
+                                                </button>
+                                            </div>
+                                            <div className='cart-details flex flex-wrap  flex-column '>
+                                                <h3>{item.designation}</h3>
+                                                <h4>
+                                                    ${item.Prix_unitaire}.00 * {item.qty}
+                                                    <span>${productQty}.00</span>
+                                                </h4>
+                                                <div className="d-flex flex-wrap justify-content-between align-items-center col-12">
+                                                    <div>
+                                                        <span>(Quantité disponible {parseInt(item.quantites)})</span>
+                                                    </div>
+
+                                                        <div className='cartControl '>
+                                                            {
+                                                                parseInt(item.quantites) === parseInt(item.qty)
+                                                                    ?
+                                                                    null
+                                                                    :
+                                                                    <button className='incCart d-flex justify-content-center align-items-center' onClick={() => addToCart(item)}>
+                                                                        <i className='fa-solid fa-plus'/>
+                                                                    </button>
+                                                            }
+                                                            <button className='desCart d-flex justify-content-center align-items-center' onClick={() => decreaseQty(item)}>
+                                                                <i className='fa-solid fa-minus'/>
+                                                            </button>
+                                                        </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
 
-                                    <div className='cart-item-price'></div>
+
+
+
                                 </div>
                             )
                         })}
@@ -84,7 +96,7 @@ const Cart = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </Container>
     )
 }
 
