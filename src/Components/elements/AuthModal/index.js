@@ -6,16 +6,16 @@ import IntlTelInput from 'react-intl-tel-input';
 import 'react-intl-tel-input/dist/main.css';
 import {Lock} from "react-feather";
 import {Person} from "@material-ui/icons";
+import {Link} from "react-router-dom";
 const AuthModal=()=>{
     const {isLoaderUser,isopenModalAut,closeModalAuth,login,sinUp} = useContext(AuthContext);
-    const [isLogin, setIsLogin] = useState(false);
+    const [isLogin, setIsLogin] = useState(true);
+    const [showPass, setShowPass] = useState(false);
     const [loginState, setLoginState] = useState({
         phone:"",
         password:"",
     })
     const [singUpState, setSingUpState] = useState({
-        Nom_complet:"",
-        phone:"",
         password:"",
         confPassword:""
     });
@@ -68,7 +68,7 @@ const AuthModal=()=>{
                                     <div className="col-2">
                                         <Lock/>
                                     </div>
-                                    <input type="password" className="inputMy col-10" placeholder="Mot de passe"
+                                    <input type={showPass ? "text" : "password" } className="inputMy col-10" placeholder="Mot de passe"
                                            onChange={e => setLoginState({
                                                ...loginState,
                                                password: e.target.value
@@ -78,6 +78,28 @@ const AuthModal=()=>{
                             </div>
                         </div>
                     </div>
+                        <div className="col-12 mt-3 ">
+                            <div className=" p-1 col-12 ">
+                                <div className="d-flex justify-content-between align-items-center ">
+                                    <span>Afficher le mot de passe</span>
+                                    <input
+                                        value={showPass}
+                                        onChange={e=>{
+                                            setShowPass(e.target.checked)
+                                        }}
+                                        aria-label="Checkbox for following text input"
+                                        type="checkbox"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-12 mt-3 ">
+                            <div className=" p-1 col-12 ">
+                                <div className="d-flex justify-content-between align-items-center ">
+                                    <Link to="/forgotpassword" onClick={closeModalAuth}>Mot de passe oublier</Link>
+                                </div>
+                            </div>
+                        </div>
                     <div className="col-12 mt-3 ">
                         <div className=" p-1 col-12 ">
                             <InputGroup>{
@@ -144,7 +166,7 @@ const AuthModal=()=>{
                                         <div className="col-2">
                                             <Lock/>
                                         </div>
-                                        <input type="password" className="inputMy col-10" placeholder="Mot de passe"
+                                        <input type={showPass ? "text" : "password"} className="inputMy col-10" placeholder="Mot de passe"
                                                onChange={e => setSingUpState({
                                                    ...singUpState,
                                                    password: e.target.value
@@ -161,13 +183,28 @@ const AuthModal=()=>{
                                         <div className="col-2">
                                             <Lock/>
                                         </div>
-                                        <input type="password" className="inputMy col-10" placeholder="Confirmez le Mot de passe"
+                                        <input type={showPass ? "text" : "password" } className="inputMy col-10" placeholder="Confirmez le Mot de passe"
                                                onChange={e => setSingUpState({
                                                    ...singUpState,
                                                    confPassword: e.target.value
                                                })}
                                         />
                                     </InputGroup>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-12 mt-3 ">
+                            <div className=" p-1 col-12 ">
+                                <div className="d-flex justify-content-between align-items-center ">
+                                        <span>Afficher le mot de passe</span>
+                                    <input
+                                        value={false}
+                                        onChange={e=>{
+                                            setShowPass(e.target.checked)
+                                        }}
+                                        aria-label="Checkbox for following text input"
+                                        type="checkbox"
+                                    />
                                 </div>
                             </div>
                         </div>

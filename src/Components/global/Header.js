@@ -21,7 +21,6 @@ function Header() {
     setislog(true)
     console.log("search",searchtext)
     // eslint-disable-next-line
-    if (searchtext != "") {
       const options = {
         url: process.env.REACT_APP_BASE_URL + "/product/search",
         method: 'POST',
@@ -85,9 +84,7 @@ function Header() {
               setProducts(null)
             }
           });
-    }else {
-      setProducts(null)
-    }
+
 
   }
   const history = useNavigate();
@@ -169,11 +166,9 @@ function Header() {
           <Search/>
           <input className="inputContainer col-11" placeholder="Search " onChange={e=>{
             // eslint-disable-next-line
-            if (e.target.value=="" || e.target.value==null ){
-              setProducts(null)
-            }else {
+
               getProducts(e.target.value)
-            }
+
               console.log("searchtextLL",e.target.value)
           }} />
         </div>
@@ -197,7 +192,7 @@ function Header() {
                   </div>
                 </div>
                 :
-               produits
+               produits !== null
               ?
             <div className=" search-cont-items ">
             <div className="row col-12">

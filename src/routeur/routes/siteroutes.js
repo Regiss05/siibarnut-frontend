@@ -41,6 +41,14 @@ const Siteroutes = [
         component: lazy(() => import('../../page/checkout/')),
         exact: true
     },
+    {
+        path:"/forgotpassword",
+        ind:{
+            index:false,
+        },
+        component: lazy(() => import('../../page/Resetpass/')),
+        exact: true
+    },
 
 ]
 
