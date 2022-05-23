@@ -27,6 +27,12 @@ const CardProviderWrapper = ({children}) => {
     },
         // eslint-disable-next-line
         [CartItem])
+
+    useEffect( ()=>{
+            localStorage.setItem("favoriItem",JSON.stringify(favoriItem))
+    },
+        // eslint-disable-next-line
+        [favoriItem])
     const addToCart =async (product) => {
         const productExit = CartItem.find((item) => item.id_produits === product.id_produits)
         if (productExit) {
