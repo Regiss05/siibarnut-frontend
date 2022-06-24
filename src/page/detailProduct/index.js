@@ -111,7 +111,7 @@ const DetailProduct = () => {
         swipeToSlide: true,
         arrows: true,
         className: "slidI",
-        autoplay: true,
+        autoplay: false,
         customPaging: function () {
 
             return (

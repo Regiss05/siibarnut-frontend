@@ -168,7 +168,7 @@ const Profil=()=>{
 
                                                            <button
                                                                className="btn btn-primary btn-round"
-                                                               onClick={handleImageUpload}>Changer la phote de profil
+                                                               onClick={handleImageUpload}>Modifier la photo de profil
                                                            </button>
                                                        }
                                                    </div>

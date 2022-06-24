@@ -8,16 +8,19 @@ import Footer from "../../Components/global/footer";
 const Cart = () => {
     // Stpe: 7   calucate total of items
     const {addToCart,decreaseQty,CartItem,deleteProduct}=useContext(CardContext);
-    const totalPrice = CartItem.reduce((price, item) => price + item.qty * item.Prix_unitaire, 0)
+    const totalPrice = CartItem.reduce((price, item) => item.prix_de_Solde > 0
+            ?
+            price + item.qty * item.prix_de_Solde
+            :
+            price + item.qty * item.Prix_unitaire
+        , 0)
     const history = useNavigate();
 
     // prodcut qty total
     return (
         <>
-        <Container>
             <section className='cart-items'>
-                <div className='container  '>
-                    <div className="row">
+                    <div className="row container">
                     {/* if hamro cart ma kunai pani item xaina bhane no diplay */}
 
                     <div className='col-12 col-xl-9 col-lg-9 cart-details'>
@@ -40,16 +43,29 @@ const Cart = () => {
                                                     <i className='fa-solid fa-xmark'></i>
                                                 </button>
                                             </div>
-                                            <div className='cart-details flex flex-wrap  flex-column '>
+                                            <div className='cart-details flex flex-wrap  flex-column col-12 '>
+
                                                 <h3>{item.designation}</h3>
-                                                <h4>
-                                                    ${item.Prix_unitaire}.00 * {item.qty}
-                                                    <span>${productQty}.00</span>
-                                                </h4>
-                                                <div className="d-flex flex-wrap justify-content-between align-items-center col-12">
+                                                <div className="d-flex justify-content-between align-items-center col-12">
                                                     <div>
-                                                        <span>(Quantité disponible {parseInt(item.quantites)})</span>
+                                                <h4>
+                                                    ${
+                                                    item.prix_de_Solde > 0
+                                                        ?
+                                                        item.prix_de_Solde
+                                                        :
+                                                        item.Prix_unitaire
+                                                }.00 * {item.qty}
+                                                    <span>${
+                                                        item.prix_de_Solde > 0
+                                                            ?
+                                                            item.prix_de_Solde * item.qty
+                                                            :
+                                                            item.Prix_unitaire * item.qty
+                                                    }.00</span>
+                                                </h4>
                                                     </div>
+                                                <div className="d-flex flex-wrap justify-content-between align-items-center ">
 
                                                         <div className='cartControl '>
                                                             {
@@ -67,6 +83,7 @@ const Cart = () => {
                                                                 <i className='fa-solid fa-minus'/>
                                                             </button>
                                                         </div>
+                                                </div>
                                                 </div>
                                             </div>
 
@@ -98,9 +115,7 @@ const Cart = () => {
                       </div>
                   </div>
                     </div>
-                </div>
             </section>
-        </Container>
     <Footer/>
     </>
     )
