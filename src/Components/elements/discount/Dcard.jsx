@@ -18,6 +18,7 @@ const Dcard = ({data}) => {
     slidesToShow: 6,
     slidesToScroll: 6,
     autoplay: data.length > 6 ? true :false,
+    swipeToSlide: true,
     responsive: [
       {
         breakpoint: 24,
@@ -63,7 +64,10 @@ const Dcard = ({data}) => {
                   <img src={process.env.REACT_APP_BASE_URL+"/img/"+item.img_princ} alt='' width='100%' />
                 </div>
                <div className="prixcontainer">
-                 <h4>{item.designation}</h4>
+                 <h4>{item.designation.length < 8
+                     ? item.designation
+                     :item.designation.substr(0,8)+"..."
+                 }</h4>
                  <div className="mtSect">
                    <span>{item.Prix_unitaire}$</span>
                    <span>-{getDiscout(item.Prix_unitaire,item.prix_de_Solde)}%</span>

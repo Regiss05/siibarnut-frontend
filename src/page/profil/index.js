@@ -148,7 +148,7 @@ const Profil=()=>{
                                                    </div>
                                                </div>
                                                <div className="col-lg-8 col-md-8 col-12">
-                                                   <h4 className="m-t-0 m-b-0"><strong>{userData?.Nom_complet}
+                                                   <h4 className="mt-4 m-b-0"><strong>{userData?.Nom_complet}
                                                    </strong></h4>
                                                    <span className="job_post">{userData?.Phone}</span>
                                                    <div className="mt-3">
