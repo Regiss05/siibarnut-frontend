@@ -13,7 +13,7 @@ import axios from "axios";
 import {toast} from "react-toastify";
 import ContentLoader from "react-content-loader";
 import {CardContext} from "../../context/cart";
-
+import profImg from "../../images/ulistartion/6.png"
 function Header() {
   const [produits,setProducts]=useState(null)
   const [isLog, setislog] = useState(false);
@@ -122,7 +122,7 @@ function Header() {
   function close() {
     setOpen(false);
   }
-  const {isLogin,logout,openModalAuth}=useContext(AuthContext);
+  const {isLogin,logout,openModalAuth,userData}=useContext(AuthContext);
   const {CartItem}=useContext(CardContext);
   const { renderLayer, triggerProps, layerProps, arrowProps } = useLayer({
     isOpen,
@@ -145,7 +145,7 @@ function Header() {
             <div className="col-12 pt-2 d-none d-xl-flex d-lg-flex align-items-center justify-content-xl-end gap-xl-5 justify-content-lg-end gap-lg-5 justify-content-between">
               <Link to="/" className="linkItems">Accueil</Link>
               <Link to="/produits" className="linkItems">Produits </Link>
-              <Link to="/" className="linkItems">A propos de nous</Link>
+              <Link to="/apropos" className="linkItems">A propos de nous</Link>
             </div>
             <div className="d-block d-lg-none d-xl-none col-12">
               <TopHeaderMobile/>
@@ -214,7 +214,19 @@ function Header() {
           <Link to="/" className="btnlink"  {...triggerProps} onClick={e => {
             e.preventDefault()
             setOpen(!isOpen)
-          }}><User color="#000"/><span className="status"/></Link>
+          }}>
+            {isLogin
+                ?
+                <img src={userData.profil?process.env.REACT_APP_BASE_URL+"/img/"+userData.profil:profImg}
+                     onError={e => {
+                       e.target.src = profImg
+                     }}
+                     className="imgProf"/>
+                :
+                <User color="#000"/>
+            }
+            <span className="status"/>
+          </Link>
 
           {renderLayer(
               <AnimatePresence>
@@ -222,9 +234,14 @@ function Header() {
                     <motion.ul {...layerProps} className="menulist">
                       {isLogin
                           ?
-                        <li>
-                        <button className="logout  btn-sm   btn" onClick={logout}><LogOut className="iconlog" size={18}/><span>Déconnexion</span></button>
-                      </li>
+                          <>
+                            <li>
+                              <button className="logout  btn-sm   btn" onClick={logout}><LogOut className="iconlog" size={18}/><span>Déconnexion</span></button>
+                            </li>
+                            <li>
+                              <Link  to="/profil" className="logout  btn-sm   btn"><User className="iconlog" size={18}/><span>Profil</span></Link>
+                            </li>
+                          </>
                           :
                         <li>
                         <button className="logout  btn-sm   btn" onClick={openModalAuth}><LogOut className="iconlog" size={18}/><span>Connexion</span></button>

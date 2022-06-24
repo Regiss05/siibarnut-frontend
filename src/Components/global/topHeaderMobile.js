@@ -7,6 +7,7 @@ import {Arrow, useLayer} from "react-laag";
 import {AnimatePresence,motion} from "framer-motion/dist/framer-motion";
 import {AuthContext} from "../../context/auth";
 import {CardContext} from "../../context/cart";
+import profImg from "../../images/ulistartion/6.png";
 const TopHeaderMobile=()=>{
     const [openMenu,setOpenMenu]=useState(false)
     const [isOpen, setOpen] = React.useState(false);
@@ -14,7 +15,7 @@ const TopHeaderMobile=()=>{
     function close() {
         setOpen(false);
     }
-    const {isLogin,logout,openModalAuth}=useContext(AuthContext);
+    const {isLogin,logout,openModalAuth,userData}=useContext(AuthContext);
     const { renderLayer, triggerProps, layerProps, arrowProps } = useLayer({
         isOpen,
         onOutsideClick: close,
@@ -39,16 +40,34 @@ const TopHeaderMobile=()=>{
                     <Link to="/" className="btnlink" {...triggerProps} onClick={e => {
                         e.preventDefault()
                         setOpen(!isOpen)
-                    }}><User color="#fff"/><span className="status"/></Link>
+                    }}>
+                        {isLogin
+                            ?
+                            <img src={userData.profil?process.env.REACT_APP_BASE_URL+"/img/"+userData.profil:profImg}
+                                 onError={e => {
+                                     e.target.src = profImg
+                                 }}
+                                 className="imgProf"/>
+                            :
+                            <User color="#000"/>
+                        }
+                        <span className="status"/>
+                    </Link>
                     {renderLayer(
                         <AnimatePresence>
                             {isOpen && (
                                 <motion.ul {...layerProps} className="menulist">
                                     {isLogin
                                         ?
-                                        <li>
-                                            <button className="logout  btn-sm   btn" onClick={logout}><LogOut className="iconlog" size={18}/><span>Déconnexion</span></button>
-                                        </li>
+
+                                        <>
+                                            <li>
+                                                <button className="logout  btn-sm   btn" onClick={logout}><LogOut className="iconlog" size={18}/><span>Déconnexion</span></button>
+                                            </li>
+                                            <li>
+                                                <Link  to="/profil" className="logout  btn-sm   btn"><User className="iconlog" size={18}/><span>Profil</span></Link>
+                                            </li>
+                                        </>
                                         :
                                         <li>
                                             <button className="logout  btn-sm   btn" onClick={openModalAuth}><LogOut className="iconlog" size={18}/><span>Connexion</span></button>
@@ -82,7 +101,7 @@ const TopHeaderMobile=()=>{
                        }}>Produits <ArrowRight color="#000"/></button>
                        <button  className="menuMobilItem col-12 d-flex justify-content-between mt-1" onClick={()=> {
                            setOpenMenu(false)
-                           history("/")
+                           history("/apropos")
                        }}>A propos de nous  <ArrowRight color="#000"/></button>
                    </div>
 

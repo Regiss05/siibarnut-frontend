@@ -4,6 +4,8 @@ import {Routes as SiteRoutes} from "./routes/";
 import Layout from "../layout";
 import ProductLoader from "../Components/elements/productLoader";
 import {Container} from "reactstrap";
+import Forgotpasswordmobil from "../page/forgotpasswordmobil";
+import {E404} from "../page/error";
 
 const Load=()=>{
     return(
@@ -30,6 +32,8 @@ const Routes=()=>{
                     })
                 }
             </Route>
+            <Route path="/forgotpasswordmobil" element={<Forgotpasswordmobil/>}/>
+            <Route path="*" element={<E404/>}/>
         </AppRoutes>
     )
 }

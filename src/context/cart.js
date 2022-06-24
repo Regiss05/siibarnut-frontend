@@ -1,10 +1,50 @@
-import React, {useState, createContext, useEffect} from "react";
+import React, {useState, createContext, useEffect, useContext} from "react";
+import axios from "axios";
+import {toast} from "react-toastify";
+import {AuthContext} from "./auth";
 //import {toast} from "react-toastify";
 const Context=createContext();
 
 const CardProviderWrapper = ({children}) => {
     const [CartItem, setCartItem] = useState([])
+    const [isLogFav, setisLogFav] = useState(false)
     const [favoriItem, setfavoriItem] = useState([])
+    const {isLogin}=useContext(AuthContext);
+
+    const getFavoritProd=async()=>{
+
+            let user=await localStorage.getItem("Id_user");
+            //setUser(JSON.parse(user))
+        setisLogFav(true)
+        if (user){
+
+            const options = {
+                url: process.env.REACT_APP_BASE_URL + "/product?user="+user ,
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json;charset=UTF-8',
+                }
+            };
+            await axios(options)
+                .then(response => {
+                    setisLogFav(false)
+                    if (response.data.status===200){
+                        setisLogFav(false)
+                        //console.log("favorit",response.data)
+                        setfavoriItem(response.data?.data);
+                    }else {
+                        setisLogFav(false)
+                        setfavoriItem([])
+                    }
+                })
+                .catch(err => {
+                    setisLogFav(false)
+                    //console.log(err.response);
+                    setfavoriItem([])
+                });
+        }
+    }
     useEffect( ()=>{
          const itemsCart= localStorage.getItem("CartItem");
         if (itemsCart){
@@ -14,13 +54,25 @@ const CardProviderWrapper = ({children}) => {
         // eslint-disable-next-line
         [])
     useEffect( ()=>{
-         const favirit= localStorage.getItem("favoriItem");
-        if (favirit){
-            setfavoriItem(JSON.parse(favirit));
-        }
+            async function fetchData() {
+                // You can await here
+                await getFavoritProd()
+                // ...
+            }
+            fetchData().then(r => {})
     },
         // eslint-disable-next-line
         [])
+    useEffect( ()=>{
+            async function fetchData() {
+                // You can await here
+                await getFavoritProd()
+                // ...
+            }
+            fetchData().then(r => {})
+    },
+        // eslint-disable-next-line
+        [isLogin])
 
     useEffect( ()=>{
             localStorage.setItem("CartItem",JSON.stringify(CartItem))
@@ -50,15 +102,46 @@ const CardProviderWrapper = ({children}) => {
             localStorage.setItem("CartItem",JSON.stringify(CartItem))
         }
     }
-    const ToggleFavorit = (product) => {
-        const productExit = favoriItem.find((item) => item.id_produits === product.id_produits)
-        if (productExit) {
-             setfavoriItem(favoriItem.filter((item) => item.id_produits !== product.id_produits))
-                 localStorage.setItem("favoriItem", JSON.stringify(favoriItem))
+    const ToggleFavorit = async (product) => {
+            //setUser(JSON.parse(user))
+        let user=await localStorage.getItem("Id_user");
+        //setUser(JSON.parse(user))
+        if (user){
+            const options = {
+                url: process.env.REACT_APP_BASE_URL + "/like/add" ,
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json;charset=UTF-8',
+                },
+                data:{
+                    "user":user,
+                    "product":product.id_produits
+                }
+            };
+            await axios(options)
+                .then(response => {
+                    if (response.data.status===200){
+                        //console.log("favorit",response.data)
+                        setfavoriItem(response.data?.data);
+                    }else {
+                    }
+                })
+                .catch(err => {
 
-        } else {
-            setfavoriItem([...favoriItem, { ...product }])
-            localStorage.setItem("favoriItem",JSON.stringify(favoriItem))
+
+                    //console.log(err.response);
+                });
+        }else {
+            toast.error('Vous etes pas connecté', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     }
 
@@ -100,7 +183,18 @@ const CardProviderWrapper = ({children}) => {
 
 
     return (
-        <Context.Provider value={{addToCart,CartItem,decreaseQty,deleteProduct,VerifIfIsExixte,ToggleFavorit,VerifIfIsExixteFavori}}>
+        <Context.Provider value={{
+            addToCart,
+            CartItem,
+            decreaseQty,
+            deleteProduct,
+            VerifIfIsExixte,
+            ToggleFavorit,
+            VerifIfIsExixteFavori,
+            getFavoritProd,
+            favoriItem,
+            isLogFav
+        }}>
             {children}
         </Context.Provider>
     )

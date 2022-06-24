@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react"
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate,useParams} from "react-router-dom";
 import Footer from "../../Components/global/footer";
 import "../../Styles/datailProdCss.css"
 import {ArrowLeft} from "@material-ui/icons";
@@ -23,13 +23,71 @@ import {
     WhatsappIcon,
 } from "react-share";
 import Slider from "react-slick";
+import axios from "axios";
+import {toast} from "react-toastify";
+import ProductLoader from "../../Components/elements/productLoader";
 const DetailProduct = () => {
     const location = useLocation();
-    const data=location?.state;
     console.log("location", location)
     const history = useNavigate();
-    const [image]=useState(data?.img_princ);
+    const [data,setProducts]=useState(null)
+    const [image,setImage]=useState(null);
     const {addToCart,VerifIfIsExixte,ToggleFavorit,VerifIfIsExixteFavori}=useContext(CardContext);
+
+    const [isLog, setislog] = useState(false);
+    let params =useParams();
+
+    const getProducts=()=>{
+        setislog(true)
+        console.log("get")
+        const options = {
+            url: process.env.REACT_APP_BASE_URL + "/product/"+params.idprod ,
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8',
+            }
+        };
+        axios(options)
+            .then(response => {
+                setislog(false)
+                if (response.data.status===200){
+                    console.log(response.data)
+                    setProducts(response.data?.data);
+                    setImage(response?.data?.data?.img_princ)
+                }else {
+                    toast.error(response?.data?.message, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                }
+            })
+            .catch(err => {
+                setislog(false)
+                console.log(err.response);
+                toast.error(err.response.data ? err.response.data.message:'Problème de connexion', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            });
+    }
+    useEffect(()=>{
+        getProducts();
+    },[])
+
+
+
+
     useEffect(()=>{
         window.scrollTo(0, 0)
     },[])
@@ -104,7 +162,7 @@ const DetailProduct = () => {
     const title = 'GitHub'
     return (
         <React.Fragment>
-            <Modal isOpen={isopenModal} size="md" autoFocus={false}>
+            <Modal isOpen={isopenModal} toggle={closeModal} size="md" autoFocus={false}>
                 <ModalHeader toggle={closeModal} style={{borderBottom:"none"}}>
                     Partager sur :
                 </ModalHeader>
@@ -192,6 +250,12 @@ const DetailProduct = () => {
         <div className="">
             <div className="conteiant-site">
                 {
+                    isLog
+                        ?
+                        <div className="row">
+                            <ProductLoader/>
+                        </div>
+                        :
                     data
                         ?
                     <div className="container mt-5 mb-5">

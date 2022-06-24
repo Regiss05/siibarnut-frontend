@@ -1,0 +1,54 @@
+.container-error{
+    height: calc(100vh + 0px);
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+}
+#svgnot{
+    width: calc(40vw - 100px);
+    height: auto;
+}
+#sol{
+    transform-origin: center;
+    animation: sol 5s linear infinite ;
+}
+@keyframes sol {
+    0%{
+        cx:349.24878;
+        cy:100;
+
+    }
+    20%{
+        cx:449.24878;
+        cy:80;
+
+    }
+    40%{
+        cx:549.24878;
+        cy:60;
+    }
+    60%{
+        cx:649.24878;
+        cy:51;
+
+    }
+    80%{
+        cx:549.24878;
+        cy:80;
+    }
+    100%{
+        cx:349.24878;
+        cy:100;
+    }
+
+}
+.container-error a{
+    color: #1888cd;
+    text-decoration: none;
+}
+.container-error a:hover{
+    color: #f47a71;
+}

@@ -57,7 +57,9 @@ const Cart = () => {
                                                                     ?
                                                                     null
                                                                     :
-                                                                    <button className='incCart d-flex justify-content-center align-items-center' onClick={() => addToCart(item)}>
+                                                                    <button className='incCart d-flex
+                                                                    justify-content-center align-items-center'
+                                                                            onClick={() => addToCart(item)}>
                                                                         <i className='fa-solid fa-plus'/>
                                                                     </button>
                                                             }
@@ -81,7 +83,7 @@ const Cart = () => {
 
                   <div className="col-12 col-xl-3 col-lg-3">
                       <div className='cart-total  col-12 productdd'>
-                          <h2>Cart Summary</h2>
+                          <h2>Panier</h2>
                           <div className=' d_flex'>
                               <h4>Total Price :</h4>
                               <h3>${totalPrice}.00</h3>

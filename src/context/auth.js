@@ -1,4 +1,4 @@
-import React, {useState, createContext, useEffect} from "react";
+import React, {useState, createContext, useEffect, useContext} from "react";
 import {toast} from "react-toastify";
 import axios from "axios";
 const Context=createContext();
@@ -16,9 +16,11 @@ const AuthProviderWrapper = ({children}) => {
     const logout=()=>{
         localStorage.removeItem("TokenUser")
         localStorage.removeItem("userData")
+        localStorage.removeItem("Id_user")
         setUserToken(null)
         setUserData(null)
         setIsLogin(false)
+
         toast.success('Deconnexion avec success', {
             position: "top-right",
             autoClose: 1000,
@@ -56,6 +58,7 @@ const AuthProviderWrapper = ({children}) => {
                         setUserToken(response.data.data.Token)
                         localStorage.setItem("TokenUser",response.data.data.Token)
                         localStorage.setItem("userData",JSON.stringify(response.data.data.user))
+                        localStorage.setItem("Id_user",response.data.data.user.Id_user)
                         closeModalAuth()
                         setIsLogin(true)
                         toast.success(response?.data?.message, {
@@ -136,6 +139,7 @@ const AuthProviderWrapper = ({children}) => {
                         setUserToken(response.data.data.Token)
                         localStorage.setItem("TokenUser","Bearer " +response.data.data.Token)
                         localStorage.setItem("userDataConfirm",JSON.stringify(response.data.data.user))
+
 
                         toast.success(response?.data?.message, {
                             position: "top-right",
@@ -331,6 +335,7 @@ const AuthProviderWrapper = ({children}) => {
                         setUserToken(response.data.data.Token)
                         localStorage.setItem("TokenUser",response.data.data.Token)
                         localStorage.setItem("userData",JSON.stringify(response.data.data.user))
+                        localStorage.setItem("Id_user",response.data.data.user.Id_user)
                         closeModalAuth()
                         setIsLogin(true)
                         toast.success(response?.data?.message, {
@@ -479,6 +484,7 @@ const AuthProviderWrapper = ({children}) => {
             openModalAuth,
             userToken,
             userData,
+            setUserData,
             logout,
             sinUp,
             getOpt,

@@ -10,7 +10,7 @@ const Siteroutes = [
         exact: true
     },
     {
-        path:"/produit",
+        path:"/produit/:idprod",
         ind:{
             index:false,
         },
@@ -47,6 +47,22 @@ const Siteroutes = [
             index:false,
         },
         component: lazy(() => import('../../page/Resetpass/')),
+        exact: true
+    },
+    {
+        path:"/profil",
+        ind:{
+            index:false,
+        },
+        component: lazy(() => import('../../page/profil/')),
+        exact: true
+    },
+    {
+        path:"/apropos",
+        ind:{
+            index:false,
+        },
+        component: lazy(() => import('../../page/apropos/')),
         exact: true
     },
 

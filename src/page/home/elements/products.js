@@ -73,7 +73,13 @@ const Products = () => {
                 {
                     produits
                         ?
-                        produits.map((item, index) => <ProductsItem prix={item.Prix_unitaire} courte_desc={item.Courte_Description} titre={item.designation} image={item.img_princ} prix_solde={item.prix_de_Solde}  onClick={() => history( "/produit", {state: item})} key={index}  />)
+                        produits.map((item, index) => <ProductsItem
+                            prix={item.Prix_unitaire} courte_desc={item.Courte_Description}
+                            titre={item.designation} image={item.img_princ}
+                            prix_solde={item.prix_de_Solde}
+                            onClick={() => history(`/produit/${item.id_produits}`)}
+                            key={index}
+                        />)
                         :
                         null
                 }

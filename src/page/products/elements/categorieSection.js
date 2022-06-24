@@ -81,7 +81,10 @@ const CategorieSection=({setcategorie})=>{
                                                      width='100%'/>
                                             </div>
                                             <div>
-                                                <h4>{item.designation}</h4>
+                                                <h4>{item.designation.length < 8
+                                                    ? item.designation
+                                                    :item.designation.substr(0,8)+"..."
+                                                }</h4>
                                             </div>
                                         </div>
                                     </div>)
