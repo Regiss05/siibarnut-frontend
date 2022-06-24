@@ -58,7 +58,7 @@ const Dcard = ({data}) => {
         {data.map((item) => {
           return (
             <>
-              <div className='box productC' key={item.id_produits} onClick={() => history( "/produit", {state: item})}>
+              <div className='box productC' key={item.id_produits} onClick={() => history(`/produit/${item.id_produits}`)}>
                 <div className='img'>
                   <img src={process.env.REACT_APP_BASE_URL+"/img/"+item.img_princ} alt='' width='100%' />
                 </div>
