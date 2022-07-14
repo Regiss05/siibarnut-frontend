@@ -540,7 +540,7 @@ footer .quick-links {
 }
 .PhoneInputCont{
     border: none;
-    padding: 5px 5px;
+    padding: 5px 0px;
     border-radius: 10px;
 }
 .PhoneInputCont2{
@@ -1109,4 +1109,7 @@ footer .quick-links {
     background-color:#8E24AA;
     color:#fff;
     height:40px;
+}
+.activeSelectPay{
+    border: solid 1px var(--color-site);
 }

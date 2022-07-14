@@ -15,6 +15,7 @@ const Cart = () => {
             price + item.qty * item.Prix_unitaire
         , 0)
     const history = useNavigate();
+    console.log("cartItems",CartItem)
 
     // prodcut qty total
     return (

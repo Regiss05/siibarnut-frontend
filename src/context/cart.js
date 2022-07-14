@@ -13,7 +13,7 @@ const CardProviderWrapper = ({children}) => {
 
     const getFavoritProd=async()=>{
 
-            let user=await localStorage.getItem("Id_user");
+            let user=await sessionStorage.getItem("Id_user");
             //setUser(JSON.parse(user))
         setisLogFav(true)
         if (user){
@@ -46,7 +46,7 @@ const CardProviderWrapper = ({children}) => {
         }
     }
     useEffect( ()=>{
-         const itemsCart= localStorage.getItem("CartItem");
+         const itemsCart= sessionStorage.getItem("CartItem");
         if (itemsCart){
              setCartItem(JSON.parse(itemsCart));
         }
@@ -75,13 +75,13 @@ const CardProviderWrapper = ({children}) => {
         [isLogin])
 
     useEffect( ()=>{
-            localStorage.setItem("CartItem",JSON.stringify(CartItem))
+            sessionStorage.setItem("CartItem",JSON.stringify(CartItem))
     },
         // eslint-disable-next-line
         [CartItem])
 
     useEffect( ()=>{
-            localStorage.setItem("favoriItem",JSON.stringify(favoriItem))
+            sessionStorage.setItem("favoriItem",JSON.stringify(favoriItem))
     },
         // eslint-disable-next-line
         [favoriItem])
@@ -94,12 +94,12 @@ const CardProviderWrapper = ({children}) => {
                     ...productExit,
                     qty: productExit.qty + 1
                 } : item)))
-                 localStorage.setItem("CartItem", JSON.stringify(CartItem))
+                sessionStorage.setItem("CartItem", JSON.stringify(CartItem))
             }
 
         } else {
             setCartItem([...CartItem, { ...product, qty: 1 }])
-            localStorage.setItem("CartItem",JSON.stringify(CartItem))
+            sessionStorage.setItem("CartItem",JSON.stringify(CartItem))
         }
     }
     const ToggleFavorit = async (product) => {
@@ -150,10 +150,10 @@ const CardProviderWrapper = ({children}) => {
 
         if (productExit.qty === 1) {
              setCartItem(CartItem.filter((item) => item.id_produits !== product.id_produits))
-             localStorage.setItem("CartItem",JSON.stringify(CartItem))
+            sessionStorage.setItem("CartItem",JSON.stringify(CartItem))
         } else {
              setCartItem(CartItem.map((item) => (item.id_produits === product.id_produits ? { ...productExit, qty: productExit.qty - 1 } : item)))
-             localStorage.setItem("CartItem",JSON.stringify(CartItem))
+            sessionStorage.setItem("CartItem",JSON.stringify(CartItem))
         }
     }
 
@@ -177,8 +177,12 @@ const CardProviderWrapper = ({children}) => {
 
         if (productExit) {
             setCartItem(CartItem.filter((item) => item.id_produits !== product.id_produits))
-             localStorage.setItem("CartItem",JSON.stringify(CartItem))
+            sessionStorage.setItem("CartItem",JSON.stringify(CartItem))
         }
+    }
+    const deleteAll =  () => {
+        setCartItem([])
+        sessionStorage.setItem("CartItem",JSON.stringify(CartItem))
     }
 
 
@@ -193,7 +197,8 @@ const CardProviderWrapper = ({children}) => {
             VerifIfIsExixteFavori,
             getFavoritProd,
             favoriItem,
-            isLogFav
+            isLogFav,
+            deleteAll
         }}>
             {children}
         </Context.Provider>

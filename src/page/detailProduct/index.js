@@ -7,6 +7,7 @@ import Discount from "../../Components/elements/discount/Discount";
 import {CardContext} from "../../context/cart";
 import {Clipboard, Heart, Share2, ShoppingCart} from "react-feather";
 import {Container, Modal, ModalBody, ModalHeader} from "reactstrap";
+import logo from "../../images/logos/3.PNG"
 import {
     FacebookShareCount,
     FacebookShareButton,
@@ -26,11 +27,15 @@ import Slider from "react-slick";
 import axios from "axios";
 import {toast} from "react-toastify";
 import ProductLoader from "../../Components/elements/productLoader";
+import {Helmet} from "react-helmet";
+
 const DetailProduct = () => {
     const location = useLocation();
     console.log("location", location)
     const history = useNavigate();
     const [data,setProducts]=useState(null)
+    const [shareUrl,setshareUrl]=useState("")
+    const [title,setTitle]=useState("")
     const [image,setImage]=useState(null);
     const {addToCart,VerifIfIsExixte,ToggleFavorit,VerifIfIsExixteFavori}=useContext(CardContext);
 
@@ -55,6 +60,8 @@ const DetailProduct = () => {
                     console.log(response.data)
                     setProducts(response.data?.data);
                     setImage(response?.data?.data?.img_princ)
+                    setshareUrl("https://muda-market.com/produit/" + response.data?.data?.id_produits)
+                    setTitle(response.data?.data?.designation)
                 }else {
                     toast.error(response?.data?.message, {
                         position: "top-right",
@@ -109,7 +116,7 @@ const DetailProduct = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         swipeToSlide: true,
-        arrows: true,
+        arrows: false,
         className: "slidI",
         autoplay: false,
         customPaging: function () {
@@ -158,10 +165,28 @@ const DetailProduct = () => {
 
     };
 
-    const shareUrl = 'http://github.com';
-    const title = 'GitHub'
+
     return (
         <React.Fragment>
+            {
+                data
+                ?
+                    <Helmet>
+                        <meta name="description" content={data.Longue_Description} />
+                        <meta name="og:title" content={data.designation}/>
+                        <title>{data.designation}</title>
+                        <meta name="og:description" content={data.Longue_Description} />
+                        <meta name="og:image" content={process.env.REACT_APP_BASE_URL+"/img/"+image} />
+                    </Helmet>
+                :
+                    <Helmet>
+                        <meta name="description" content="Mudamarket product not found" />
+                        <meta name="og:title" content="Mudamarket product not found" />
+                        <meta name="og:description" content="Mudamarket product not found" />
+                        <title>Mudamarket product not found</title>
+                        <meta name="og:image" content={logo} />
+                    </Helmet>
+            }
             <Modal isOpen={isopenModal} toggle={closeModal} size="md" autoFocus={false}>
                 <ModalHeader toggle={closeModal} style={{borderBottom:"none"}}>
                     Partager sur :
