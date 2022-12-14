@@ -113,7 +113,9 @@ function MiddleTop() {
           {
               produits
                   ?
-                  produits.map((item,index)=><img src={process.env.REACT_APP_BASE_URL+"/img/"+item.image} alt="imglg" className="imglg" key={index}/>)
+                  produits.map((item,index)=><img
+                      src={process.env.REACT_APP_BASE_URL+"/img/"+item.image}
+                      alt="imglg" className="imglg" key={index}/>)
 
                   :
                   null

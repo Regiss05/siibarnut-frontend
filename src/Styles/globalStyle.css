@@ -1113,3 +1113,24 @@ footer .quick-links {
 .activeSelectPay{
     border: solid 1px var(--color-site);
 }
+.collapsItem{
+    background: var(--color-site);
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+}
+.collapsItem2{
+    background: var(--color-site);
+    margin-bottom: 0;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+}
+.chilCollaps{
+border: rgba(0, 0, 0, 0.2) solid 1px;
+    padding: 10px 5px 10px 10px;
+
+}

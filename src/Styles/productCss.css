@@ -7,6 +7,9 @@
         font-weight: lighter;
         font-size: 9px;
     }
+    .imglg{
+        height: auto;
+    }
 }
 @media all and (min-width: 760px) and (max-width: 1000px) {
     .cardp {
@@ -16,6 +19,9 @@
     .descProduct{
         font-weight: lighter;
         font-size: 14px;
+    }
+    .imglg{
+        height: auto;
     }
 }
 @media all and (min-width: 1001px) {

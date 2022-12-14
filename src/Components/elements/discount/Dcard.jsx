@@ -4,14 +4,7 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import {useNavigate} from "react-router-dom";
 const Dcard = ({data}) => {
-  const getDiscout=(prix,discount)=>{
-    if (prix && discount){
-      var discountP=(discount * 100)/prix
-      return 100-discountP
-    }else {
-      return 0;
-    }
-  }
+
   const settings2 = {
     dots: false,
     infinite:data.length > 6 ? true :false,
@@ -69,8 +62,8 @@ const Dcard = ({data}) => {
                      :item.designation.substr(0,8)+"..."
                  }</h4>
                  <div className="mtSect">
-                   <span>{item.Prix_unitaire}$</span>
-                   <span>-{getDiscout(item.Prix_unitaire,item.prix_de_Solde)}%</span>
+                   <span  className="prixProd2">{item.Prix_unitaire}$</span>
+                   <span >{item.prix_de_Solde}$</span>
                  </div>
                </div>
               </div>

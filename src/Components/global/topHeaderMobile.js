@@ -1,13 +1,17 @@
-import React, {useContext, useState} from "react";
-import {ArrowRight, LogOut, Menu, ShoppingCart, User} from "react-feather";
+import React, {useContext, useEffect, useState} from "react";
+import { ChevronDown, LogOut, Menu, ShoppingCart, User} from "react-feather";
 import {Link, useNavigate} from "react-router-dom";
 import {Offcanvas, OffcanvasBody, OffcanvasHeader} from "reactstrap";
-import logoImage from "../../images/logos/3.PNG"
 import {Arrow, useLayer} from "react-laag";
 import {AnimatePresence,motion} from "framer-motion/dist/framer-motion";
 import {AuthContext} from "../../context/auth";
 import {CardContext} from "../../context/cart";
 import profImg from "../../images/ulistartion/6.png";
+import axios from "axios";
+import {toast} from "react-toastify";
+import ProductLoader from "../elements/productLoader";
+import Collapsible from 'react-collapsible';
+
 const TopHeaderMobile=()=>{
     const [openMenu,setOpenMenu]=useState(false)
     const [isOpen, setOpen] = React.useState(false);
@@ -28,6 +32,62 @@ const TopHeaderMobile=()=>{
         arrowOffset: 16 ,
     });
     const {CartItem}=useContext(CardContext);
+    const [data,setData]=useState(null)
+    const [isLog, setislog] = useState(false);
+    const getcategorie=()=>{
+        setislog(true)
+        console.log("get")
+        const options = {
+            url: process.env.REACT_APP_BASE_URL + "/categories" ,
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json;charset=UTF-8',
+            }
+        };
+        axios(options)
+            .then(response => {
+                setislog(false)
+                if (response.data.status===200){
+                    console.log(response.data)
+                    setData(response.data?.data);
+                }else {
+                    toast.error(response?.data?.message, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                }
+            })
+            .catch(err => {
+                setislog(false)
+                console.log(err.response);
+                toast.error('Problème de connexion', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            });
+    }
+    useEffect(()=>{
+        getcategorie();
+    },[])
+
+ const getCatByparant=(parent)=>{
+        if (parent){
+            return data.filter((item) => item.id_parent ===parent)
+        }else return null;
+ }
+
+
     return(
         <React.Fragment>
         <div className="row col-12">
@@ -87,22 +147,43 @@ const TopHeaderMobile=()=>{
             <Offcanvas toggle={()=>setOpenMenu(false)} isOpen={openMenu}>
                 <OffcanvasHeader toggle={()=>setOpenMenu(false)}/>
                 <OffcanvasBody>
-                   <div className="col-12 d-flex justify-content-center align-items-center">
-                       <img src={logoImage} alt="logoimg" className="logoManu"/>
-                   </div>
-                   <div className="col-12 d-flex justify-content-start align-items-center flex-column">
-                       <button  className="menuMobilItem col-12 d-flex justify-content-between mt-1"  onClick={()=> {
-                           setOpenMenu(false)
-                           history("/")
-                       }}>Accueil <ArrowRight color="#000"/></button>
-                       <button  className="menuMobilItem col-12 d-flex justify-content-between mt-1" onClick={()=> {
-                           setOpenMenu(false)
-                           history("/produits")
-                       }}>Produits <ArrowRight color="#000"/></button>
-                       <button  className="menuMobilItem col-12 d-flex justify-content-between mt-1" onClick={()=> {
-                           setOpenMenu(false)
-                           history("/apropos")
-                       }}>A propos de nous  <ArrowRight color="#000"/></button>
+                   <div className=" d-flex justify-content-start  flex-column">
+
+                           {
+                               isLog
+                                   ?
+                                   <div className="row">
+                                       <ProductLoader/>
+                                   </div>
+                                   :
+                                   data
+                                       ?
+                                       data.filter((item) => item.Type_du_categorie ==="1").map((item, index) => <Collapsible trigger={<div className="collapsItem col-12">
+                                           <span>{item.designation}</span><ChevronDown/>
+                                           </div>} key={index} >
+                                           <div className="chilCollaps">
+                                               {
+                                                   getCatByparant(item.id_cat)
+                                                       ?
+                                                       getCatByparant(item.id_cat).map((itemChildren, indexChildren) => <Collapsible trigger={<div className="collapsItem2 col-12">
+                                                               <span>{itemChildren.designation}</span><ChevronDown/>
+                                                           </div>} key={indexChildren} >
+                                                               <p>
+                                                                   This is the collapsible content. It can be any element or React
+                                                                   component you like.
+                                                               </p>
+                                                           </Collapsible>
+                                                       )
+                                                       :
+                                                       null
+                                               }
+                                           </div>
+
+                                           </Collapsible>
+                                       )
+                                       :
+                                       null}
+
                    </div>
 
                 </OffcanvasBody>

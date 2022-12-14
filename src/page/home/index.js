@@ -5,14 +5,20 @@ import Footer from "../../Components/global/footer";
 import {Container} from "reactstrap";
 import Discount from "../../Components/elements/discount/Discount";
 import CategorieSection from "./elements/categorieSection";
-
+import { useMediaQuery } from 'react-responsive'
 const Home=()=>{
     useEffect(()=>{
         window.scrollTo(0, 0)
     },[])
+    const isDesktopOrLaptop = useMediaQuery({ minWidth: 1224 })
+    const isBigScreen = useMediaQuery({ minWidth: 1824 })
+    const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 })
+    const isPortrait = useMediaQuery({ orientation: 'portrait' })
+    const isRetina = useMediaQuery({ minResolution: '2dppx' })
+
     return(
         <div >
-            <CategorieSection/>
+            {isDesktopOrLaptop && <CategorieSection/>}
             <Container>
                 <TopSection/>
             </Container>
