@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import {InputGroup, Modal, ModalBody, ModalHeader, Spinner} from "reactstrap";
+import { Modal, ModalBody, ModalHeader, Spinner} from "reactstrap";
 import mob from "../../../images/ulistartion/mbM.jpg";
 import cd from "../../../images/ulistartion/cdr.jpg";
 import IntlTelInput from "react-intl-tel-input";
