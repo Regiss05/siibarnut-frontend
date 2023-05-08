@@ -36,7 +36,8 @@ const Apropos=()=>{
                                             Dans sa rubrique organisation des évènements, Muda Market offre des services de location
                                             lumières de scène, des stands lumières, podium ainsi que la conception d’ordre
                                             organisationnel.
-                                            Muda market est situé au centre-ville – Quartier le volcan. </p>
+                                            Muda market est situé au centre-ville – Quartier le volcan.
+                                        </p>
 
                                     </div>
 
