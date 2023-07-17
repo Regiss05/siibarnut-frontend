@@ -79,7 +79,7 @@ import {Email} from "@material-ui/icons";
                      </div>
                  </div>
              </div>
-                 <a href="/" className="abv btnover1">
+                 <a href="https://wa.link/kxh5pk" target="_blank" rel="noreferrer" className="abv btnover1">
                      <span >
                          <MessageCircle size={30}/>
                      </span>
