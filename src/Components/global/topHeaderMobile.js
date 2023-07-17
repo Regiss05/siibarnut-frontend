@@ -83,7 +83,13 @@ const TopHeaderMobile=()=>{
 
  const getCatByparant=(parent)=>{
         if (parent){
-            return data.filter((item) => item.id_parent ===parent)
+            const dataFilter =data.filter((item) => item.id_parent ===parent)
+            if (dataFilter?.length > 0){
+                return dataFilter
+            }else {
+                return null
+            }
+
         }else return null;
  }
 
@@ -103,7 +109,7 @@ const TopHeaderMobile=()=>{
                     }}>
                         {isLogin
                             ?
-                            <img src={userData.profil?process.env.REACT_APP_BASE_URL+"/img/"+userData.profil:profImg}
+                            <img alt="prof" src={userData.profil?process.env.REACT_APP_BASE_URL+"/img/"+userData.profil:profImg}
                                  onError={e => {
                                      e.target.src = profImg
                                  }}
@@ -158,28 +164,60 @@ const TopHeaderMobile=()=>{
                                    :
                                    data
                                        ?
-                                       data.filter((item) => item.Type_du_categorie ==="1").map((item, index) => <Collapsible trigger={<div className="collapsItem col-12">
+                                       data.filter((item) => item.Type_du_categorie ==="1").map((item, index) =>
+                                           getCatByparant(item.id_cat)
+                                           ?
+                                           <Collapsible trigger={<div className="collapsItem col-12">
                                            <span>{item.designation}</span><ChevronDown/>
                                            </div>} key={index} >
                                            <div className="chilCollaps">
                                                {
                                                    getCatByparant(item.id_cat)
                                                        ?
-                                                       getCatByparant(item.id_cat).map((itemChildren, indexChildren) => <Collapsible trigger={<div className="collapsItem2 col-12">
+                                                       getCatByparant(item.id_cat).map((itemChildren, indexChildren) =>
+                                                           getCatByparant(itemChildren.id_cat)
+                                                           ?
+                                                           <Collapsible trigger={
+                                                           <div className="collapsItem2 col-12">
                                                                <span>{itemChildren.designation}</span><ChevronDown/>
-                                                           </div>} key={indexChildren} >
-                                                               <p>
-                                                                   This is the collapsible content. It can be any element or React
-                                                                   component you like.
-                                                               </p>
+                                                           </div>
+
+                                                       } key={indexChildren} >
+                                                           {
+                                                               getCatByparant(itemChildren.id_cat)
+                                                                   ?
+                                                                   getCatByparant(itemChildren.id_cat).map((itemChildren2, indexChildren2) => <Collapsible trigger={
+                                                                           <div className="collapsItem2 col-12">
+                                                                               <span>{itemChildren2.designation}</span><ChevronDown/>
+                                                                           </div>
+                                                                       } key={indexChildren2} >
+                                                                       </Collapsible>
+                                                                   )
+                                                                   :
+                                                                   null
+                                                           }
                                                            </Collapsible>
+                                                               :
+                                                               <div className="collapsItem2 col-12 mt-1" onClick={() => {
+                                                                   history( "/produits", {state: item})
+                                                                   close()
+                                                               }}>
+                                                                   <span>{itemChildren.designation}</span>
+                                                               </div>
                                                        )
                                                        :
-                                                       null
+                                                     null
                                                }
                                            </div>
 
                                            </Collapsible>
+                                               :
+                                               <div className="collapsItem col-12" onClick={() => {
+                                                   history( "/produits", {state: item})
+                                                   close()
+                                               }}>
+                                                   <span>{item.designation}</span>
+                                               </div>
                                        )
                                        :
                                        null}

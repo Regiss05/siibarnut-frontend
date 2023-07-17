@@ -286,8 +286,17 @@ const DetailProduct = () => {
                     <div className="container mt-5 mb-5">
                     <div className="row d-flex justify-content-center">
                         <div className="col-12 col-xl-10 col-lg-10">
+                            <div className="row">
+                                <div className="col-12 mb-3">
+                                    <button onClick={()=>history(-1)} className="d-flex  align-items-start align-items-center btn-site-Custom-blue">
+                                        <ArrowLeft/>
+                                        <span className="ml-1">Back</span>
+                                    </button>
+                                </div>
+                            </div>
                             <div className="cards">
                                 <div className="row">
+
                                     <div className="col-md-6 ">
                                         <div className="images px-2   row">
 

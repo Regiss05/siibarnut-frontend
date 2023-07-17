@@ -1134,3 +1134,22 @@ border: rgba(0, 0, 0, 0.2) solid 1px;
     padding: 10px 5px 10px 10px;
 
 }
+.btn-site-Custom-blue{
+    background-color:  var(--color-site);
+    border-radius: 0.4rem;
+    color: #ffffff;
+    transition: all 0.5s;
+    border: solid 2px var(--color-site) !important;
+    outline: none;
+    padding: 0 1.8rem !important;
+    line-height: 2.4571428571 !important;
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
+}
+.btn-site-Custom-blue:hover{
+    background-color:  transparent;
+    border-radius: 0.4rem;
+    color: var(--color-site);
+    border: solid 2px var(--color-site) !important;
+    transition: all 0.5s;
+}
