@@ -200,22 +200,18 @@ const TopHeaderMobile=()=>{
                                                                :
                                                                <div className="collapsItem2 col-12 mt-1" onClick={() => {
                                                                    history( "/produits", {state: item})
-                                                                   close()
                                                                }}>
                                                                    <span>{itemChildren.designation}</span>
                                                                </div>
                                                        )
                                                        :
-                                                     null
+                                                       <div><span className="text-primary">none</span></div>
                                                }
                                            </div>
 
                                            </Collapsible>
                                                :
-                                               <div className="collapsItem col-12" onClick={() => {
-                                                   history( "/produits", {state: item})
-                                                   close()
-                                               }}>
+                                               <div className="collapsItem col-12">
                                                    <span>{item.designation}</span>
                                                </div>
                                        )
