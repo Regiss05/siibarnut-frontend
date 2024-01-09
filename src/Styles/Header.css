@@ -57,7 +57,7 @@
 }
 .headerTop {
   width: 100%;
-  background-color: var(--color-site);
+  background-color: white;
   min-height: 40px;
 }
 .header-light{

@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import {AuthContext} from "../../../context/auth";
 import {InputGroup, Modal, ModalBody, ModalHeader, Spinner} from "reactstrap";
-import logo from "../../../images/logos/2.PNG"
+// import logo from "../../../images/logos/2.PNG"
 import IntlTelInput from 'react-intl-tel-input';
 import 'react-intl-tel-input/dist/main.css';
 import {Lock} from "react-feather";
@@ -37,9 +37,9 @@ const AuthModal=()=>{
         <div className="container">
             <h5 className="text-center">{isLogin ?"Connexion":"Inscription"}</h5>
             <div className="row ">
-                <div className="col-12 col-xl-4 col-lg-4  d-flex justify-content-center align-items-center">
+                {/* <div className="col-12 col-xl-4 col-lg-4  d-flex justify-content-center align-items-center">
                     <img src={logo} alt={"logg"} className="logo2"/>
-                </div>
+                </div> */}
 
                 { isLogin
                     ?

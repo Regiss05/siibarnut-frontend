@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import '../../Styles/Header.css';
 import { Search } from '@material-ui/icons';
-import logo from "../../images/logos/3.PNG"
+// import logo from "../../images/logos/3.PNG"
 import {Link, useNavigate} from "react-router-dom";
 import TopHeaderMobile from "./topHeaderMobile";
 import {LogOut, ShoppingCart, User} from "react-feather";
@@ -155,10 +155,10 @@ function Header() {
         </div>
     <div className={"header"}>
     <div className="headerContainer container col-12">
-      <div className="logo col-2 col-lg-1 col-xl-1 ">
+      {/* <div className="logo col-2 col-lg-1 col-xl-1 ">
         <img className="logo "
              src={logo} alt=""  />
-      </div>
+      </div> */}
 
       <div className="headerLeft col-10 col-lg-8 col-xl-8">
         <div className="col-12 d-flex flex-column">

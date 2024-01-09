@@ -7,7 +7,7 @@ import Discount from "../../Components/elements/discount/Discount";
 import {CardContext} from "../../context/cart";
 import {Clipboard, Heart, Share2, ShoppingCart} from "react-feather";
 import {Container, Modal, ModalBody, ModalHeader} from "reactstrap";
-import logo from "../../images/logos/3.PNG"
+// import logo from "../../images/logos/3.PNG"
 import {
     FacebookShareCount,
     FacebookShareButton,
@@ -168,7 +168,7 @@ const DetailProduct = () => {
 
     return (
         <React.Fragment>
-            {
+            {/* {
                 data
                 ?
                     <Helmet>
@@ -186,7 +186,7 @@ const DetailProduct = () => {
                         <title>Mudamarket product not found</title>
                         <meta name="og:image" content={logo} />
                     </Helmet>
-            }
+            } */}
             <Modal isOpen={isopenModal} toggle={closeModal} size="md" autoFocus={false}>
                 <ModalHeader toggle={closeModal} style={{borderBottom:"none"}}>
                     Partager sur :

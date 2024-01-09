@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import '../../../Styles/MiddleTop.css';
 import Slider from "react-slick";
 import axios from "axios";
+import marketingphoto from "../../../images/bmw.jpg"
+
 function MiddleTop() {
   const settings = {
     dots: true,
@@ -109,7 +111,7 @@ function MiddleTop() {
 
   return (
     <div className="middleTopContainer col-12 col-xl-9 col-lg-9 ">
-      <Slider {...settings}>
+      {/* <Slider {...settings}>
           {
               produits
                   ?
@@ -120,7 +122,8 @@ function MiddleTop() {
                   :
                   null
           }
-      </Slider>
+      </Slider> */}
+      <img src={marketingphoto} alt="mark" className="market"/>
     </div>
   )
 }

@@ -31,11 +31,11 @@ const ProductsItem=({image,titre,prix,onClick,courte_desc,prix_solde})=>{
                         prix_solde > 0
                             ?
                             <div className="d-flex  align-items-center justify-content-start gap-3 px-2 ">
-                                <span className="prixProd2">{prix} $</span>
-                                <span className="prixProd">{prix_solde} $</span>
+                                <span className="prixProd2">{prix} Pi</span>
+                                <span className="prixProd">{prix_solde} Pi</span>
                             </div>
                             :
-                            <span className="prixProd">{prix} $</span>
+                            <span className="prixProd">{prix} Pi</span>
                     }
 
                 </div>

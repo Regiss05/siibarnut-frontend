@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import Footer from "../../Components/global/footer";
 import {Container} from "reactstrap";
 import {Mail, PhoneCall} from "react-feather";
-import logo from "../../images/logos/3.PNG"
+// import logo from "../../images/logos/3.PNG"
 const Apropos=()=>{
     useEffect(()=>{
         window.scrollTo(0, 0)
@@ -18,9 +18,9 @@ const Apropos=()=>{
 
                             <div className="card p-3 py-4">
 
-                                <div className="text-center">
+                                {/* <div className="text-center">
                                     <img src={logo} width="100" className="rounded-circle"/>
-                                </div>
+                                </div> */}
 
                                 <div className="text-center mt-3">
                                     <h5 className="mt-2 mb-0">MUDAMARKET</h5>

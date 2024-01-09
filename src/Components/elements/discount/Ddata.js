@@ -9,11 +9,11 @@ const Ddata = [
     name: "Sony TV 1080p",
     price: "$450",
   },
-  {
-    cover: "./images/discount/discount-3.png",
-    name: "Sony PS4",
-    price: "$50",
-  },
+  // {
+  //   cover: "./images/discount/discount-3.png",
+  //   name: "Sony PS4",
+  //   price: "$50",
+  // },
   {
     cover: "./images/discount/discount-4.png",
     name: "Setgearr 2022",
