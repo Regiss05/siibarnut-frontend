@@ -60,7 +60,7 @@ const Discount = () => {
   return (
     <>
       <section className='Discount background NewArrivals'>
-        <div className='container'>
+        {/* <div className='container'>
           <div className='heading d_flex'>
             <div className='heading-left row  f_flex'>
               <h5>Promotions</h5>
@@ -79,7 +79,7 @@ const Discount = () => {
                     null
 
           }
-        </div>
+        </div> */}
         <div style={{
           marginBottom:20,
         }}/>

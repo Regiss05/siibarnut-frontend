@@ -56,7 +56,7 @@ const CategorieSection=({setcategorie})=>{
     return (
         <>
             <section className='Discount background NewArrivals'>
-                <div className='container'>
+                {/* <div className='container'>
                     <div className='heading d_flex'>
                         <div className='heading-left row  f_flex'>
                             <h5>Categories</h5>
@@ -92,7 +92,7 @@ const CategorieSection=({setcategorie})=>{
                                     null}
 
                     </div>
-                </div>
+                </div> */}
             </section>
         </>
     )
