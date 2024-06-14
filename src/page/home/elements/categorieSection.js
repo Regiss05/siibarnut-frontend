@@ -75,7 +75,7 @@ const CategorieSection=({setcategorie})=>{
                          data
                              ?
                              data.map((item, index) => <div className="col-3 col-xl-1 col-lg-1" key={index}>
-                                 <div className='box productDs' onClick={() => {
+                                 <div className='rightTopContainer d-none d-xl-flex d-lg-flex  col-12 col-xl-3 col-lg-3  mt-4 mt-xl-0 mt-lg-0Container d-none d-xl-flex d-lg-flex  col-12 col-xl-3 col-lg-3  mt-4 mt-xl-0 mt-lg-0Container d-none d-xl-flex d-lg-flex  col-12 col-xl-3 col-lg-3  mt-4 mt-xl-0 mt-lg-0s' onClick={() => {
                                      history( "/produits", {state: item})
                                  }}>
                                      <div className='img'>

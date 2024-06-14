@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import '../../../Styles/MiddleTop.css';
 import Slider from "react-slick";
 import axios from "axios";
-import marketingphoto from "../../../images/bmw.jpg"
 
 function MiddleTop() {
   const settings = {
@@ -123,7 +122,8 @@ function MiddleTop() {
                   null
           }
       </Slider> */}
-      <img src={marketingphoto} alt="mark" className="market"/>
+      {/* <img src={marketingphoto} alt="mark" className="market"/> */}
+      <iframe src="https://www.google.com/maps/d/embed?mid=1HLd8in2lwquXprZuuz9-z14AgP7EhbU&ehbc=2E312F" width="1290" height="680"></iframe>
     </div>
   )
 }
